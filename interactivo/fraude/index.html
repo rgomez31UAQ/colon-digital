@@ -16,6 +16,14 @@
 
 <header class="site-header">
   <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+    <nav class="main">
+      <a href="../../">Inicio</a>
+      <a href="../../feria/">Feria</a>
+      <a href="../../seguridad/">Protegerme</a>
+      <a href="../../taller/">Aprender</a>
+      <a href="../../interactivo/" class="activo">Retos</a>
+      <a href="../../ayuda/">Ayuda</a>
+    </nav>
 </header>
 
 <main id="contenido" class="ancho-interactivo">
@@ -27,6 +35,32 @@
   <div id="zona-juego" aria-live="polite"></div>
 
   <p><a href="../">&larr; Volver a los retos</a></p>
+  <!-- Material del tema (QR · docs/inyectar_material_qr.py) -->
+  <section class="card" id="material-del-tema" aria-labelledby="mt-interactivo-fraude">
+    <h3 id="mt-interactivo-fraude">🖼️🎬 Material sobre este tema</h3>
+    <p>Infografías oficiales (SSPM Querétaro, Policía Estatal, UAQ) y cápsulas en video,
+    listas para revisar con calma o compartir en casa.</p>
+    <div class="galeria-grid">
+      <figure><img loading="lazy" src="../../assets/images/infografias/smishing-fotomulta.jpg" alt="Infografía: Smishing: fotomulta falsa"><figcaption>Smishing: fotomulta falsa</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/transferencias-fantasma.jpg" alt="Infografía: Transferencias fantasma"><figcaption>Transferencias fantasma</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/fraude-nfc.jpg" alt="Infografía: Fraude NFC"><figcaption>Fraude NFC</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/fraude-streaming.jpg" alt="Infografía: Fraude de cuentas de streaming"><figcaption>Fraude de cuentas de streaming</figcaption></figure>
+    </div>
+    <div class="video-item">
+      <h4>🎬 La "fotomulta" que es una trampa</h4>
+      <video controls preload="none" poster="../../media/videos/capsula-fotomulta-falsa.jpg">
+        <source src="../../media/videos/capsula-fotomulta-falsa.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-item">
+      <h4>🎬 Extorsión telefónica: cuelga y reporta</h4>
+      <video controls preload="none" poster="../../media/videos/capsula-extorsion-telefonica.jpg">
+        <source src="../../media/videos/capsula-extorsion-telefonica.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p style="margin-bottom:0;"><a href="../../recursos/infografias/">Ver todas las infografías</a> ·
+    <a href="../../recursos/videos/">Ver todos los videos</a></p>
+  </section>
 </main>
 
 <footer>
@@ -129,5 +163,6 @@
   arrancar();
 })();
 </script>
+<script src="../../js/lightbox.js" defer></script>
 </body>
 </html>

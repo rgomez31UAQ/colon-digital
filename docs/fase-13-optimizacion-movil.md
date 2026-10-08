@@ -17,6 +17,7 @@
 |---|---|---|
 | Peso total JS+CSS | < 40 KB | carga < 3 s en 3G |
 | Imágenes de assets | < 300 KB c/u | datos móviles |
+| Cápsulas de video (media/videos) | < 15 MB c/u, < 60 MB total, `preload="none"` | play explícito, sin gasto de datos inesperado |
 | Página index | < 30 KB c/u | sin contenido pesado embebido |
 | `viewport` | en 100% de páginas | render móvil correcto |
 

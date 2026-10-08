@@ -125,10 +125,21 @@ check("viewport en todas las páginas", not sin_vp, str(sin_vp)[:120])
 # 8b. presupuesto de peso: js+css total < 40 KB (carga <3 s en 3G)
 peso = sum(os.path.getsize(f) for f in glob.glob("js/*.js") + glob.glob("css/*.css"))
 check("Peso js+css < 40 KB", peso < 40 * 1024, f"{peso/1024:.1f} KB")
-# 8c. ninguna imagen del sitio > 300 KB (excepto material externo)
+# 8c. ninguna imagen del sitio > 300 KB (los videos viven en media/, ver 8e)
 pesadas = [f for f in glob.glob("assets/**/*", recursive=True)
            if os.path.isfile(f) and os.path.getsize(f) > 300 * 1024]
 check("Imágenes de assets < 300 KB", not pesadas, str(pesadas)[:120])
+# 8e. presupuesto de videos (media/videos): cada cápsula < 15 MB y total < 60 MB;
+#     solo se cargan con preload="none" (play explícito del usuario)
+vids = glob.glob("media/videos/*.mp4")
+peso_vids = sum(os.path.getsize(v) for v in vids)
+vid_grande = [v for v in vids if os.path.getsize(v) > 15 * 1024 * 1024]
+sin_preload = [f for f in sorted(set(paginas))
+               if 'preload="none"' in open(f).read() and "media/videos/" in open(f).read()
+               and open(f).read().count("<video") != open(f).read().count('preload="none"')]
+check("Cápsulas < 15 MB c/u", not vid_grande, str(vid_grande)[:120])
+check("Total cápsulas < 60 MB", peso_vids < 60 * 1024 * 1024, f"{peso_vids/1e6:.1f} MB en {len(vids)} videos")
+check("<video> siempre con preload=none", not sin_preload, str(sin_preload)[:120])
 # 8d. páginas index < 30 KB cada una (sin contenido pesado embebido)
 pesadas = [f for f in sorted(set(paginas)) if os.path.getsize(f) > 30 * 1024]
 check("Páginas index < 30 KB", not pesadas, str([(f, os.path.getsize(f)//1024) for f in pesadas])[:200])

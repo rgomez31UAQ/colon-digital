@@ -14,6 +14,14 @@
 
 <header class="site-header">
   <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+    <nav class="main">
+      <a href="../../">Inicio</a>
+      <a href="../../feria/">Feria</a>
+      <a href="../../seguridad/">Protegerme</a>
+      <a href="../../taller/">Aprender</a>
+      <a href="../../interactivo/" class="activo">Retos</a>
+      <a href="../../ayuda/">Ayuda</a>
+    </nav>
 </header>
 
 <main id="contenido" class="ancho-interactivo">
@@ -25,6 +33,21 @@
   <div id="zona-juego" aria-live="polite"></div>
 
   <p><a href="../">&larr; Volver a los retos</a></p>
+  <!-- Material del tema (QR · docs/inyectar_material_qr.py) -->
+  <section class="card" id="material-del-tema" aria-labelledby="mt-interactivo-quiz">
+    <h3 id="mt-interactivo-quiz">🖼️🎬 Material sobre este tema</h3>
+    <p>Infografías oficiales (SSPM Querétaro, Policía Estatal, UAQ) y cápsulas en video,
+    listas para revisar con calma o compartir en casa.</p>
+    <div class="galeria-grid">
+      <figure><img loading="lazy" src="../../assets/images/infografias/ponte-en-guardia.jpg" alt="Infografía: #PonteEnGuardia"><figcaption>#PonteEnGuardia</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/tipos-fraude-linea.jpg" alt="Infografía: Tipos de fraude en línea"><figcaption>Tipos de fraude en línea</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/911-emergencias.jpg" alt="Infografía: 9-1-1 emergencias"><figcaption>9-1-1 emergencias</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/cuelgapp-extorsion.jpg" alt="Infografía: CuelgApp contra extorsión"><figcaption>CuelgApp contra extorsión</figcaption></figure>
+    </div>
+
+    <p style="margin-bottom:0;"><a href="../../recursos/infografias/">Ver todas las infografías</a> ·
+    <a href="../../recursos/videos/">Ver todos los videos</a></p>
+  </section>
 </main>
 
 <footer>
@@ -74,5 +97,6 @@
   });
 })();
 </script>
+<script src="../../js/lightbox.js" defer></script>
 </body>
 </html>

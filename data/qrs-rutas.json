@@ -4,7 +4,7 @@
     "/qr/phishing": "interactivo/phishing/",
     "/qr/fraude": "interactivo/fraude/",
     "/qr/cuentas": "seguridad/cuentas/",
-    "/qr/privacidad": "interactivo/privacidad/",
+    "/qr/privacidad": "taller/modulos/privacidad/",
     "/qr/redes": "seguridad/redes/",
     "/qr/leyes": "leyes/",
     "/qr/municipio": "interactivo/incidente-municipal/",

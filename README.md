@@ -81,7 +81,11 @@ Detalle y decisiones en [docs/fase-1-arquitectura.md](./docs/fase-1-arquitectura
 
 `/qr/phishing · /qr/fraude · /qr/cuentas · /qr/privacidad · /qr/redes · /qr/leyes · /qr/municipio · /qr/reto · /qr/ayuda · /qr/taller` (+ las 16 del taller).
 
-Los destinos viven en `data/qr-rutas.json`: **cambiar destino nunca obliga a re-imprimir material.**
+Los destinos viven en `data/qrs-rutas.json`: **cambiar destino nunca obliga a re-imprimir material.**
+
+Cada página destino lleva una sección **"Material sobre este tema"** (infografías oficiales + cápsulas
+en video del tema) generada con `python3 docs/inyectar_material_qr.py` — idempotente y con las mismas
+reglas de presupuesto móvil (`loading=lazy`, `preload="none"`).
 
 ## 🔒 Privacidad por diseño
 

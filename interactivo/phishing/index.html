@@ -16,6 +16,14 @@
 
 <header class="site-header">
   <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+    <nav class="main">
+      <a href="../../">Inicio</a>
+      <a href="../../feria/">Feria</a>
+      <a href="../../seguridad/">Protegerme</a>
+      <a href="../../taller/">Aprender</a>
+      <a href="../../interactivo/" class="activo">Retos</a>
+      <a href="../../ayuda/">Ayuda</a>
+    </nav>
 </header>
 
 <main id="contenido" class="ancho-interactivo">
@@ -27,6 +35,26 @@
   <div id="zona-juego" aria-live="polite"></div>
 
   <p><a href="../">&larr; Volver a los retos</a></p>
+  <!-- Material del tema (QR · docs/inyectar_material_qr.py) -->
+  <section class="card" id="material-del-tema" aria-labelledby="mt-interactivo-phishing">
+    <h3 id="mt-interactivo-phishing">🖼️🎬 Material sobre este tema</h3>
+    <p>Infografías oficiales (SSPM Querétaro, Policía Estatal, UAQ) y cápsulas en video,
+    listas para revisar con calma o compartir en casa.</p>
+    <div class="galeria-grid">
+      <figure><img loading="lazy" src="../../assets/images/infografias/phishing-como-operan.jpg" alt="Infografía: Phishing: cómo operan"><figcaption>Phishing: cómo operan</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/uaq-phishing-1.jpg" alt="Infografía: uaq phishing 1"><figcaption>uaq phishing 1</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/uaq-phishing-4.jpg" alt="Infografía: uaq phishing 4"><figcaption>uaq phishing 4</figcaption></figure>
+      <figure><img loading="lazy" src="../../assets/images/infografias/uaq-phishing-6.jpg" alt="Infografía: uaq phishing 6"><figcaption>uaq phishing 6</figcaption></figure>
+    </div>
+    <div class="video-item">
+      <h4>🎬 Evita dar clic en enlaces sospechosos</h4>
+      <video controls preload="none" poster="../../media/videos/capsula-enlaces-sospechosos.jpg">
+        <source src="../../media/videos/capsula-enlaces-sospechosos.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p style="margin-bottom:0;"><a href="../../recursos/infografias/">Ver todas las infografías</a> ·
+    <a href="../../recursos/videos/">Ver todos los videos</a></p>
+  </section>
 </main>
 
 <footer>
@@ -110,5 +138,6 @@
   if (window.Juego) { pintar(); } else { location.reload(); }
 })();
 </script>
+<script src="../../js/lightbox.js" defer></script>
 </body>
 </html>
