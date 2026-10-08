@@ -1,0 +1,277 @@
+/* ============================================================
+   COLÓN DIGITAL — base.css (FASE 2: design system)
+   PIENSA • VERIFICA • PROTEGE • REPORTA
+   ============================================================ */
+
+:root {
+  /* ---- Paleta (contraste AA verificado) ---- */
+  --c-azul-oscuro: #0D1B2A;
+  --c-azul-medio:  #1B496B;
+  --c-azul-claro:  #5FA8D3;
+  --c-crema:       #FFF8F0;
+  --c-ambar:       #FFA500;
+  --c-rojo:        #C1121F;
+  --c-verde:       #1E7A46;
+  --c-texto:       #111111;
+  --c-gris:        #55606A;
+  --c-gris-claro:  #A9B6C2;   /* texto secundario sobre fondo oscuro (AA/AAA) */
+  --c-blanco:      #FFFFFF;
+
+  /* ---- Tipografía ---- */
+  --ff: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-xs: 13px; --fs-sm: 14px; --fs-base: 16.5px; --fs-md: 19px;
+  --fs-lg: 23px; --fs-xl: 30px; --fs-hero: clamp(40px, 7vw, 46px);
+
+  /* ---- Espaciado (escala 4px) ---- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-8: 48px; --sp-10: 64px;
+
+  /* ---- Radios y sombra ---- */
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-pill: 999px;
+  --shadow: 0 6px 18px rgba(13, 27, 42, .12);
+}
+
+/* ---------- Reset ligero ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--ff);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--c-texto);
+  background: var(--c-azul-oscuro);
+}
+img, svg { max-width: 100%; height: auto; display: block; }
+a { color: var(--c-azul-claro); }
+main { padding: 0 var(--sp-4) var(--sp-10); max-width: 720px; margin: 0 auto; color: var(--c-crema); }
+main.ancho-interactivo { max-width: 960px; }
+p { max-width: 34rem; }
+
+/* Foco visible siempre */
+:focus-visible { outline: 3px solid var(--c-ambar); outline-offset: 2px; border-radius: var(--r-sm); }
+
+/* Accesibilidad: skip link */
+.skip { position: absolute; left: -9999px; top: 0; background: var(--c-ambar); color: var(--c-azul-oscuro);
+        padding: var(--sp-2) var(--sp-3); border-radius: 0 0 var(--r-sm) 0; z-index: 99; }
+.skip:focus { left: 0; }
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--c-azul-oscuro); color: var(--c-blanco);
+  min-height: 48px;
+}
+.site-header a { color: var(--c-blanco); text-decoration: none; font-weight: 700; }
+.site-header .logo { font-size: var(--fs-md); }
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center; padding: var(--sp-8) var(--sp-4) var(--sp-6);
+  color: var(--c-blanco);
+}
+.hero h1 { font-size: var(--fs-hero); margin: 0 0 var(--sp-2); }
+.hero .subtitulo { color: var(--c-azul-claro); font-weight: 700; letter-spacing: 1px; margin-bottom: var(--sp-5); }
+.hero .frase { color: var(--c-ambar); font-weight: 800; margin: var(--sp-4) 0; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-block; cursor: pointer; text-decoration: none; text-align: center;
+  font-family: inherit; font-weight: 700; font-size: var(--fs-base);
+  border: 0; border-radius: var(--r-pill);
+  padding: var(--sp-3) var(--sp-5);
+  transition: filter .15s ease;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn-primary { background: var(--c-azul-medio); color: var(--c-blanco); }
+.btn-secundario { background: transparent; color: var(--c-azul-claro); border: 2px solid var(--c-azul-claro); }
+.btn-rojo { background: var(--c-rojo); color: var(--c-blanco); }
+
+/* Botones rápidos del hero (tarjeta-clic grande) */
+.btn-quick {
+  display: flex; flex-direction: column; gap: var(--sp-1);
+  width: 100%; max-width: 460px; margin: var(--sp-3) auto 0;
+  text-align: left; padding: var(--sp-4) var(--sp-5);
+  background: var(--c-azul-medio); color: var(--c-blanco); border-radius: var(--r-md);
+  min-height: 56px;
+}
+.btn-quick .q-title { font-weight: 800; font-size: var(--fs-md); }
+.btn-quick .q-desc { font-weight: 400; font-size: var(--fs-sm); opacity: .92; }
+.btn-quick.ayuda { background: var(--c-rojo); }
+
+/* ---------- Tarjetas ---------- */
+.card {
+  background: var(--c-crema); border-radius: var(--r-lg);
+  padding: var(--sp-5); box-shadow: var(--shadow);
+  margin: var(--sp-4) 0; color: var(--c-texto);
+}
+.card-alerta { border-left: 6px solid var(--c-rojo); }
+.card-ok { border-left: 6px solid var(--c-verde); }
+.card h2, .card h3 { margin-top: 0; color: var(--c-azul-medio); }
+.card a, .tip a { color: var(--c-azul-medio); }   /* azul-claro sobre crema no pasa AA */
+.lista-tarjetas .card { margin: var(--sp-3) 0; }
+
+/* ---------- Chips / badges ---------- */
+.chip {
+  display: inline-block; padding: 2px var(--sp-3); border-radius: var(--r-pill);
+  font-size: var(--fs-xs); font-weight: 700; vertical-align: middle;
+}
+.chip-verde { background: var(--c-verde); color: var(--c-blanco); }
+.chip-ambar { background: var(--c-ambar); color: var(--c-azul-oscuro); }
+.chip-rojo { background: var(--c-rojo); color: var(--c-blanco); }
+.chip-gris { background: var(--c-gris); color: var(--c-blanco); }
+
+/* Aviso de datos pendientes de verificación oficial */
+.pendiente { margin: var(--sp-3) 0; }
+
+/* ---------- Sello de simulación educativa ---------- */
+.ban-simulacion {
+  background: var(--c-rojo); color: var(--c-blanco);
+  text-align: center; font-weight: 800; font-size: var(--fs-xs);
+  letter-spacing: .5px; padding: 8px var(--sp-4);
+}
+
+/* ---------- QR box ---------- */
+.qr-box {
+  text-align: center; background: var(--c-crema); border-radius: var(--r-md);
+  padding: var(--sp-4); margin: var(--sp-4) auto; max-width: 340px;
+  box-shadow: var(--shadow);
+}
+.qr-box img { width: 210px; height: 210px; margin: 0 auto; }
+.qr-box .qr-req { font-weight: 800; color: var(--c-ambar); }
+
+/* ---------- Pasos numerados ---------- */
+.pasos { list-style: none; padding: 0; margin: var(--sp-4) 0; }
+.pasos .paso {
+  display: flex; gap: var(--sp-3); margin-bottom: var(--sp-3); align-items: flex-start;
+}
+.pasos .n {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--c-azul-medio); color: var(--c-blanco);
+  display: flex; align-items: center; justify-content: center; font-weight: 800;
+}
+.pasos .paso.primero .n { background: var(--c-rojo); }
+
+/* ---------- Tabla simple (horarios/eventos) ---------- */
+.tabla { width: 100%; border-collapse: collapse; background: var(--c-crema); border-radius: var(--r-md); overflow: hidden; }
+.tabla th { background: var(--c-azul-medio); color: var(--c-blanco); text-align: left; padding: var(--sp-2) var(--sp-3); }
+.tabla td { padding: var(--sp-2) var(--sp-3); border-top: 1px solid rgba(13,27,42,.08); }
+
+/* ---------- Bottom nav (móvil) ---------- */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+  display: flex; background: var(--c-azul-oscuro);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.bottom-nav a {
+  flex: 1; text-align: center; padding: var(--sp-2) 2px var(--sp-3);
+  color: var(--c-blanco); text-decoration: none; font-size: 11px; font-weight: 600;
+}
+.bottom-nav .ico { display: block; font-size: 20px; margin-bottom: 2px; }
+.bottom-nav a.ayuda { color: #fff; background: var(--c-rojo); border-radius: var(--r-md) var(--r-md) 0 0; }
+body { padding-bottom: 76px; } /* espacio nav móvil */
+
+@media (min-width: 821px) {
+  .bottom-nav { display: none; }
+  body { padding-bottom: 0; }
+  main { max-width: 960px; }
+}
+
+/* ---------- Lema (firma de páginas) ---------- */
+.lema {
+  background: var(--c-azul-medio); color: var(--c-blanco);
+  text-align: center; font-weight: 800; font-size: var(--fs-xs);
+  letter-spacing: 1px; padding: 10px var(--sp-4);
+}
+
+/* ---------- Mascota CIBER (opcional) ---------- */
+/* Desactivarla: borrar css/ciber.css y el include _ciber.html */
+.ciber-dice {
+  display: flex; gap: var(--sp-3); align-items: center;
+  background: var(--c-crema); border: 2px dashed var(--c-azul-claro);
+  border-radius: var(--r-md); padding: var(--sp-3); margin: var(--sp-4) 0;
+  color: var(--c-texto);
+}
+.ciber-dice .ciber-avatar { font-size: 34px; }
+.ciber-dice .ciber-frase { font-weight: 700; }
+
+/* ---------- Animaciones: solo suaves, respetando reduce-motion ---------- */
+@keyframes pulsa { 0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)} }
+.anim-pulsa { animation: pulsa 2.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Reservado para FASE 13 (tema oscuro opcional). Tema actual: oscuro-crema fijo. */
+}
+
+/* ============ FASE 4.5: ESTILO CARTELERA (inspirado en material oficial
+   del municipio; usa los tokens aprobados, sin colores nuevos) ============ */
+
+/* Cuenta regresiva hasta el 11 de octubre */
+.contador {
+  display: flex; gap: var(--sp-2); justify-content: center;
+  margin: var(--sp-4) auto 0; max-width: 420px;
+}
+.contador .u {
+  background: var(--c-blanco); color: var(--c-azul-oscuro);
+  border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-2);
+  min-width: 64px; text-align: center; box-shadow: var(--shadow);
+}
+.contador .u b { display: block; font-size: var(--fs-lg); line-height: 1.1; }
+.contador .u span { font-size: 11px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+
+/* Grupo de días con encabezado (indices de cartelera) */
+.dia-grupo { margin: var(--sp-5) 0 var(--sp-3); }
+.dia-grupo > .d {
+  display: flex; align-items: center; gap: var(--sp-3);
+  color: var(--c-azul-claro); font-weight: 800; font-size: var(--fs-md);
+  margin-bottom: var(--sp-2); scroll-margin-top: 70px;
+}
+.dia-grupo > .d .n {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: var(--r-sm);
+  background: var(--c-ambar); color: var(--c-azul-oscuro);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1.05; box-shadow: var(--shadow);
+}
+.dia-grupo > .d .n b { font-size: var(--fs-md); }
+.dia-grupo > .d .n span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
+
+/* Tarjeta-evento tipo póster */
+.postal-evento {
+  display: flex; gap: var(--sp-3); align-items: flex-start;
+  background: var(--c-crema); border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4); margin: var(--sp-2) 0;
+  box-shadow: var(--shadow); color: var(--c-texto);
+}
+.postal-evento .hora {
+  flex: 0 0 auto; font-weight: 800; font-size: var(--fs-sm);
+  color: var(--c-azul-medio); min-width: 74px; padding-top: 2px;
+}
+.postal-evento .info { min-width: 0; }
+.postal-evento .info strong { display: block; color: var(--c-azul-medio); }
+.postal-evento .info .chip { margin-left: var(--sp-2); }
+.postal-evento.estelar {
+  border-left: 6px solid var(--c-ambar);
+}
+.postal-evento.taller-nosotros { border-left: 6px solid var(--c-verde); }
+
+/* Índice rápido de días (nav con chips saltables) */
+.indice-dias { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.indice-dias a {
+  background: var(--c-azul-medio); color: var(--c-blanco);
+  border-radius: var(--r-pill); padding: 4px var(--sp-3);
+  font-size: var(--fs-xs); font-weight: 700; text-decoration: none;
+}
+
+/* Tips de seguridad en el evento (estilo "tips del Teatro" del sitio oficial) */
+.tip-grid { display: grid; gap: var(--sp-3); }
+@media (min-width: 640px) { .tip-grid { grid-template-columns: 1fr 1fr; } }
+.tip {
+  background: var(--c-crema); border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4); box-shadow: var(--shadow); color: var(--c-texto);
+}
+.tip strong { color: var(--c-azul-medio); display: block; margin-bottom: var(--sp-1); }

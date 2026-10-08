@@ -1,0 +1,104 @@
+{
+  "nota": "Banco de 10 preguntas del Reto Final Defensor Digital (literal del banco del taller, fase 7 actividades). Todo ficticio/educativo. Sin captura de datos.",
+  "titulo": "Reto Final: Defensor Digital",
+  "proposito": "10 preguntas de todo el taller. Sin registro: tu resultado se queda en tu celular.",
+  "duracion": "3 min",
+  "preguntas": [
+    {
+      "id": "p1",
+      "pregunta": "Te llega un SMS: «Su cuenta se bloqueará en 1 hora. Confirme su clave aquí: bancc-24.info». ¿Qué haces?",
+      "opciones": [
+        { "texto": "No hago clic: es fraude", "ok": true, "feedback": "Un banco nunca pide clave por mensaje y la urgencia es fabricada." },
+        { "texto": "Abro rápido antes de que se bloquee", "ok": false, "feedback": "Casi… la hora límite es el mismo truco de siempre." },
+        { "texto": "Llamo al número del mensaje", "ok": false, "feedback": "Casi… ese número es del estafador: el oficial está al reverso de tu tarjeta." }
+      ]
+    },
+    {
+      "id": "p2",
+      "pregunta": "«Mamá, soy tu hija, se me rompió el celular, este es mi número nuevo, ¿me lanzas $500?» ¿Qué haces?",
+      "opciones": [
+        { "texto": "Llamo a su número de SIEMPRE antes de mandar algo", "ok": true, "feedback": "Número nuevo + dinero = firma clásica de perfil clonado." },
+        { "texto": "Le mando, es mi hija", "ok": false, "feedback": "Casi… la identidad se comprueba por el canal conocido." },
+        { "texto": "Respondo \"¿quién eres?\" al número nuevo", "ok": false, "feedback": "Casi… contestar al número nuevo sigue siendo entrar al juego del estafador." }
+      ]
+    },
+    {
+      "id": "p3",
+      "pregunta": "Post de una página desconocida: «¡ÚLTIMOS BOLETOS 70% OFF Feria de Colón! Paga ya en: boletos-oferta.info». ¿Qué haces?",
+      "opciones": [
+        { "texto": "Compro boletos únicamente en los puntos oficiales del evento", "ok": true, "feedback": "Dominio raro + descuento de última hora = el anzuelo clásico de feria." },
+        { "texto": "Pago ahí, es más rápido", "ok": false, "feedback": "Casi… un dominio inventado se borra al día siguiente con tu dinero." },
+        { "texto": "Comparto el post al grupo familiar", "ok": false, "feedback": "Casi… avisar sí, pero sin compartir el enlace que puede pegar." }
+      ]
+    },
+    {
+      "id": "p4",
+      "pregunta": "¿Cuál señal de las siguientes NO es típica de un mensaje de fraude?",
+      "opciones": [
+        { "texto": "Te informa con calma y no te pide nada", "ok": true, "feedback": "La mensajería legítima informa; la fraudulenta apura y pide." },
+        { "texto": "Urgencia extrema («solo 24 horas»)", "ok": false, "feedback": "Esa SÍ es típica de fraude: fabrica prisa para que no pienses." },
+        { "texto": "Enlace con dominio inventado", "ok": false, "feedback": "Esa SÍ es típica de fraude: el dominio raro delata." }
+      ]
+    },
+    {
+      "id": "p5",
+      "pregunta": "El \"agente del banco\" por teléfono te pide el código de 6 dígitos que acaba de llegarte. ¿Por qué NO debes darlo?",
+      "opciones": [
+        { "texto": "Ese código es mi MFA: con él el estafador entra aunque no tenga mi clave", "ok": true, "feedback": "El código es la segunda cerradura: el banco nunca lo pide." },
+        { "texto": "Porque puede ser caro", "ok": false, "feedback": "Casi… no es el precio: es la puerta. Con el código ENTRA." },
+        { "texto": "Porque a lo mejor es un truco", "ok": false, "feedback": "Casi… no es \"a lo mejor\": si piden el código, ES la estafa." }
+      ]
+    },
+    {
+      "id": "p6",
+      "pregunta": "Publicaste «¡Vacaciones familiares! Regresamos el domingo 🏖️». ¿Qué revelaste?",
+      "opciones": [
+        { "texto": "Casa sola + fechas exactas", "ok": true, "feedback": "La publicación contó a desconocidos cuándo estará vacía tu casa." },
+        { "texto": "Nada: es solo una foto bonita", "ok": false, "feedback": "Casi… el texto vale tanto como la foto: el texto es lo que delata." },
+        { "texto": "Solo se lo dije a mis amigos", "ok": false, "feedback": "Casi… revisa quién ve tus publicaciones: \"amigos\" puede ser todo el mundo." }
+      ]
+    },
+    {
+      "id": "p7",
+      "pregunta": "Ya transferiste dinero a un estafador y te das cuenta minutos después. ¿Cuál es tu PRIMERA acción?",
+      "opciones": [
+        { "texto": "Detener todo pago o dato siguiente, y CONSERVAR la evidencia", "ok": true, "feedback": "Detener + conservar: borrar por vergüenza destruye la prueba y ayuda al estafador." },
+        { "texto": "Borrar todo y olvidarlo", "ok": false, "feedback": "Casi… la vergüenza es de él; la evidencia es tuya (y tu recuperación)." },
+        { "texto": "Enfrentarlo por chat para recuperar", "ok": false, "feedback": "Casi… el estafador no devuelve: cada intento expone más datos tuyos." }
+      ]
+    },
+    {
+      "id": "p8",
+      "pregunta": "Encuentras un QR pegado en un puesto que \"ofrece el doble de boletos que el oficial\". ¿Qué haces?",
+      "opciones": [
+        { "texto": "No lo escaneo: verifico con el personal si es su QR oficial", "ok": true, "feedback": "Un QR confiable es el que explica a dónde lleva. Primero verifica humano." },
+        { "texto": "Lo escaneo y veo si se ve oficial", "ok": false, "feedback": "Casi… \"verse oficial\" se falsifica: el escaneo ya te llevó." },
+        { "texto": "Lo comparto para ver si otros caen", "ok": false, "feedback": "Casi… nunca compartimos el anzuelo: avisar sí, compartir no." }
+      ]
+    },
+    {
+      "id": "p9",
+      "pregunta": "¿Qué debe tener la contraseña de tu banco?",
+      "opciones": [
+        { "texto": "Larga (frase de 4–5 palabras) y DISTINTA de todas tus otras cuentas", "ok": true, "feedback": "Larga gana a compleja; única por cuenta: una filtración no abre las demás." },
+        { "texto": "Corta pero con números y símbolos", "ok": false, "feedback": "Casi… la complejidad corta pierde contra la longitud." },
+        { "texto": "La misma de mi correo para no olvidarla", "ok": false, "feedback": "Casi… si cae tu correo, cae tu banco: una distinta para cada cuenta." }
+      ]
+    },
+    {
+      "id": "p10",
+      "pregunta": "¿Cuál es la regla madre del taller?",
+      "opciones": [
+        { "texto": "DETENTE Y VERIFICA", "ok": true, "feedback": "Las 5 Preguntas + verificar por un canal distinto: un clic nunca sobra." },
+        { "texto": "Responder rápido para no perder ofertas", "ok": false, "feedback": "Casi… la rapidez es el terreno del estafador." },
+        { "texto": "Confiar porque \"se ve oficial\"", "ok": false, "feedback": "Casi… verse oficial se fabrica: verificar no." }
+      ]
+    }
+  ],
+  "recomendaciones": [
+    { "texto": "La tarjeta de las 5 Preguntas", "href": "../../taller/modulos/5preguntas/" },
+    { "texto": "Guía de fraudes", "href": "../../seguridad/fraude/" },
+    { "texto": "Protege tus cuentas (MFA)", "href": "../../taller/modulos/cuentas/" },
+    { "texto": "Guía SI YA CAÍSTE", "href": "../../taller/modulos/si-ya-cai/" }
+  ]
+}

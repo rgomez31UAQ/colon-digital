@@ -1,0 +1,30 @@
+{
+  "nota": "Router de QR: los QRs impresos apuntan a /qr/<tema>. Cambiar un destino aquí NO obliga a re-imprimir material. FASE 5: 15 rutas del taller activas (módulos web reales).",
+  "rutas": {
+    "/qr/phishing": "interactivo/phishing/",
+    "/qr/fraude": "interactivo/fraude/",
+    "/qr/cuentas": "seguridad/cuentas/",
+    "/qr/privacidad": "interactivo/privacidad/",
+    "/qr/redes": "seguridad/redes/",
+    "/qr/leyes": "leyes/",
+    "/qr/municipio": "interactivo/incidente-municipal/",
+    "/qr/reto": "interactivo/quiz/",
+    "/qr/ayuda": "ayuda/",
+    "/qr/taller": "taller/",
+
+    "/qr/dependencia": "interactivo/riesgos/",
+    "/qr/riesgos": "interactivo/riesgos/",
+    "/qr/estafa": "interactivo/carretera/",
+    "/qr/smishing": "interactivo/fraude/",
+    "/qr/vishing": "interactivo/fraude/",
+    "/qr/suplantacion": "interactivo/suplantacion/",
+    "/qr/ingenieria": "interactivo/palancas/",
+    "/qr/5preguntas": "taller/modulos/5preguntas/",
+    "/qr/mis-cuentas": "taller/modulos/cuentas/",
+    "/qr/mfa": "taller/modulos/cuentas/",
+    "/qr/privacidad-bis": "taller/modulos/privacidad/",
+    "/qr/huella": "taller/modulos/privacidad/",
+    "/qr/si-ya-cai": "taller/modulos/si-ya-cai/",
+    "/qr/caerias": "interactivo/phishing/"
+  }
+}

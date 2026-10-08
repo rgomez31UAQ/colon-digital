@@ -1,0 +1,31 @@
+{
+  "nota": "Actividades del proyecto COLÓN DIGITAL dentro de la feria. Fuente: programa municipal (docs/registro-verificacion.md). Estado: REGISTRADO 2026-10-07.",
+  "estado": "REGISTRADO",
+  "actualizado": "2026-10-07",
+  "talleres": [
+    {
+      "id": "conferencia-digital",
+      "titulo": "Conferencia \"Protege tu vida digital\"",
+      "descripcion": "Cómo protegerte en tu día a día: fraudes más comunes, verificación en dos pasos y qué hacer si algo sale mal. Con lenguaje sencillo para toda la familia.",
+      "fecha": "Lunes 12 de octubre de 2026",
+      "hora": "3:00 pm",
+      "duracion": "PENDIENTE",
+      "lugar": "Foro Alterno",
+      "dirigido_a": "Público general",
+      "cupo": "PENDIENTE",
+      "qr": "/qr/taller"
+    },
+    {
+      "id": "taller-seguridad-digital",
+      "titulo": "Taller \"Seguridad digital\"",
+      "descripcion": "El taller presencial del proyecto: dinámicas con tarjetas, QRs a mini-experiencias y la tarjeta de las 5 Preguntas para llevar. Sin registro y sin captura de datos.",
+      "fecha": "Lunes 12 de octubre de 2026",
+      "hora": "4:00 pm",
+      "duracion": "PENDIENTE",
+      "lugar": "Foro Alterno",
+      "dirigido_a": "Público general (versiones para jóvenes, familias y adultos mayores)",
+      "cupo": "PENDIENTE",
+      "qr": "/qr/taller"
+    }
+  ]
+}

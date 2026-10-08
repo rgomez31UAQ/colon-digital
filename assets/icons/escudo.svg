@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Escudo COLÓN DIGITAL">
+  <path d="M32 2 L58 10 V32 C58 48 46 58 32 62 C18 58 6 48 6 32 V10 Z" fill="#1B496B" stroke="#5FA8D3" stroke-width="3"/>
+  <circle cx="24" cy="24" r="3.5" fill="#FFF8F0"/>
+  <circle cx="40" cy="24" r="3.5" fill="#FFF8F0"/>
+  <circle cx="24" cy="40" r="3.5" fill="#FFF8F0"/>
+  <path d="M40 40 h-6 v6 h-6 v-12 h12 Z M40 40 v6 h6 v-6 Z" fill="#FFA500"/>
+</svg>

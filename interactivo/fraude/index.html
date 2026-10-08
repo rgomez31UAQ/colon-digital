@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bandeja de mensajes: ¿fraude? — COLÓN DIGITAL</title>
+<meta name="description" content="Clasifica 6 mensajes ficticios (legítimo, sospechoso, fraude) y decide qué haces en una llamada sospechosa. Resultado privado.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="ban-simulacion">⚠️ SIMULACIÓN EDUCATIVA — todos los mensajes y nombres son FICTICIOS</div>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🎭 ¿Fraude o no?</h1>
+    <p class="subtitulo">Bandeja de mensajes + una llamada sospechosa</p>
+  </section>
+
+  <div id="zona-juego" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona-juego");
+
+  function bandeja(data){
+    var msjs = data.bandeja.mensajes;
+    var rondas = msjs.map(function(m, i){
+      return {
+        pregunta: "Mensaje " + (i + 1) + " de " + msjs.length,
+        contexto: '<p style="font-family:monospace; font-size:var(--fs-sm); margin:0;">' + Juego.esc(m.texto) + '</p>',
+        opciones: [
+          { texto: "✅ Legítimo", ok: m.correcta === "legitimo", feedback: m.feedback },
+          { texto: "⚠️ Sospechoso", ok: m.correcta === "sospechoso", feedback: m.feedback },
+          { texto: "🚨 Fraude", ok: m.correcta === "fraude", feedback: m.feedback }
+        ]
+      };
+    });
+    Juego.rondas(zona, rondas, function(puntos, max){
+      Juego.resultado(zona, {
+        puntos: puntos, max: max,
+        nivel: { emoji: "🎭", nombre: "Bandeja revisada",
+          mensaje: puntos >= 5 ? "Ojo fino: los patrones ya te delatan al estafador." : "Con la práctica salen solos: repite la bandeja cuando quieras." },
+        recomendaciones: [
+          { texto: "Guía de fraudes", href: "../../seguridad/fraude/" },
+          { texto: "Probar la llamada sospechosa (vishing)", href: "#vishing" }
+        ],
+        alRepetir: arrancar
+      });
+    });
+  }
+
+  function vishing(data){
+    var v = data.vishing;
+    Juego.rondas(zona, [{
+      pregunta: v.titulo,
+      contexto: '<p style="margin:0;">' + v.contexto + '</p>',
+      opciones: v.opciones
+    }], function(puntos){
+      Juego.resultado(zona, {
+        puntos: puntos, max: 1,
+        nivel: { emoji: "📞", nombre: "Llamada resuelta",
+          mensaje: "La regla: cuelga y llama TÚ. El código MFA nunca se comparte." },
+        recomendaciones: [
+          { texto: "Módulo completo de fraudes", href: "../../taller/modulos/fraudes/" },
+          { texto: "Jugar la bandeja otra vez", href: "#bandeja" }
+        ],
+        alRepetir: arrancar
+      });
+    });
+  }
+
+  // Delegación única de enlaces internos (fuera de arrancar: no se acumula al repetir)
+  zona.addEventListener("click", function(ev){
+    var a = ev.target.closest('a[href="#vishing"], a[href="#bandeja"]');
+    if (!a) return;
+    ev.preventDefault();
+    Juego.cargar("../../data/fraude-smishing.json").then(function(d){
+      if (a.getAttribute("href") === "#vishing") {
+        vishing(d);
+      } else {
+        Juego.intro(zona, { titulo: d.bandeja.titulo, proposito: d.bandeja.proposito,
+          duracion: d.bandeja.duracion, alComenzar: function(){ bandeja(d); } });
+      }
+    });
+  });
+
+  function arrancar(){
+    Juego.cargar("../../data/fraude-smishing.json").then(function(data){
+      Juego.intro(zona, {
+        titulo: data.bandeja.titulo,
+        proposito: data.bandeja.proposito,
+        duracion: data.bandeja.duracion,
+        alComenzar: function(){ bandeja(data); }
+      });
+    }).catch(function(e){
+      zona.innerHTML = '<div class="card card-alerta"><h3>⚠️ No se pudo cargar</h3>' +
+        '<p>Ábrela con un servidor de prueba (python3 -m http.server).</p>' +
+        '<p>Detalle: <code>' + Juego.esc(e.message) + '</code></p></div>';
+    });
+  }
+  arrancar();
+})();
+</script>
+</body>
+</html>

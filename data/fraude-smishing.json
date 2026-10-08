@@ -1,0 +1,56 @@
+{
+  "nota": "Bandeja de mensajes ficticios (A05 del taller: los 4 clásicos + recompensa de puntos + cambio de número de familiar) y la mini-simulación de vishing (A06). Simulación educativa: sin marcas reales.",
+  "bandeja": {
+    "titulo": "Bandeja de mensajes: ¿legítimo, sospechoso o fraude?",
+    "proposito": "Clasifica los 6 mensajes de esta bandeja ficticia. Tu punto se queda en tu celular.",
+    "duracion": "60 s",
+    "mensajes": [
+      {
+        "texto": "BANCO SEGURA: movimiento no reconocido en su cuenta. Confirme su clave aquí: bancc-24.info",
+        "correcta": "fraude",
+        "feedback": "Banco que pide clave por mensaje no existe: urgencia + dominio inventado."
+      },
+      {
+        "texto": "Tu paquete está retenido en aduana. Paga $48 para liberarlo: paquestes-mx.info",
+        "correcta": "fraude",
+        "feedback": "Si no esperabas paquete, es fraude; si lo esperabas, revisa en la app oficial."
+      },
+      {
+        "texto": "Mamá, soy tu hijo, se me rompió el cel, este es mi número nuevo, ¿me lanzas $300?",
+        "correcta": "fraude",
+        "feedback": "Número nuevo + dinero = perfil clonado. Llama al número de SIEMPRE."
+      },
+      {
+        "texto": "¡Felicidades! Ganaste el sorteo de la feria 🎉 Solo paga el envío y confirma tus datos aquí.",
+        "correcta": "fraude",
+        "feedback": "Si no participaste, no ganaste. Ningún premio cobra \"envío\" por adelantado."
+      },
+      {
+        "texto": "Tu proveedor de telefonía: recarga registrada de $200 hoy a las 10:14. ¿No fuiste tú? Revisa el detalle en la app oficial.",
+        "correcta": "sospechoso",
+        "feedback": "Casi… el aviso en sí puede ser legítimo, pero la app la abres TÚ, nunca por un enlace del mensaje."
+      },
+      {
+        "texto": "Recordatorio de cita médica: su consulta es mañana a las 10:00 en el centro de salud. Responde 1 para confirmar.",
+        "correcta": "legitimo",
+        "feedback": "Informa, no apura ni pide dinero ni claves: patrón de mensaje legítimo. Igual, la cita se confirma en el canal de siempre."
+      }
+    ]
+  },
+  "vishing": {
+    "titulo": "¿Qué harías en esta llamada?",
+    "proposito": "\"AGENTE MENDOZA\" (ficticio) te llama serio y con prisa pidiendo el código de 6 dígitos. Decide tu respuesta.",
+    "duracion": "60 s",
+    "contexto": "📞 «Buenas tardes, hablo del área de seguridad de su banco. Detectamos una transacción sospechosa. Le enviaremos un código… <strong>dígamelo cuando llegue</strong> para cancelar la operación.»",
+    "opciones": [
+      { "texto": "Cuelgo y llamo yo al número del reverso de mi tarjeta", "ok": true,
+        "feedback": "¡Cuelgas y llamas TÚ: imposible de estafar! Ese código era tu MFA." },
+      { "texto": "Le doy el código para que cancele la operación", "ok": false,
+        "feedback": "¡Justo lo que el estafador quiere! Ese código era tu MFA: con él entra. Ya lo sabes: cuelga." },
+      { "texto": "Le pido nombre y número y lo llamo después", "ok": false,
+        "feedback": "Casi… te dará un número falso. El único válido: el del reverso de tu tarjeta, marcado por ti." },
+      { "texto": "Sigo la conversación para ver qué quiere", "ok": false,
+        "feedback": "Casi… cada segundo en la llamada es terreno del estafador. Cuelgar es gratis y seguro." }
+    ]
+  }
+}

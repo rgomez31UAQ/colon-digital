@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Qué emoción manipulan en ti? — COLÓN DIGITAL</title>
+<meta name="description" content="5 mensajes ficticios: elige la palanca emocional que usa el estafador. Detectarla es la fortaleza.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🧠 ¿Qué emoción manipulan en ti?</h1>
+    <p class="subtitulo">Toda estafa presiona una palanca. Aprende a verla.</p>
+  </section>
+
+  <div id="zona-juego" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona-juego");
+
+  function iniciar(data){
+    var rondas = data.mensajes.map(function(m){
+      return {
+        pregunta: "¿Qué palanca está usando este mensaje?",
+        contexto: '<p style="font-family:monospace; font-size:var(--fs-sm); margin:0;">' + Juego.esc(m.texto) + '</p>',
+        opciones: data.palancas.map(function(p){
+          return { texto: p, ok: p === m.correcta, feedback: m.feedback };
+        })
+      };
+    });
+    Juego.rondas(zona, rondas, function(puntos, max){
+      Juego.resultado(zona, {
+        puntos: puntos, max: max,
+        nivel: { emoji: "🧠", nombre: "Palancas detectadas",
+          mensaje: data.cierre },
+        recomendaciones: [
+          { texto: "Módulo completo: fraudes y palancas", href: "../../taller/modulos/fraudes/" },
+          { texto: "Ir al Reto Final 🏆", href: "../quiz/" }
+        ],
+        alRepetir: function(){ arrancar(); }
+      });
+    });
+  }
+
+  function arrancar(){
+    Juego.cargar("../../data/palancas.json").then(function(data){
+      Juego.intro(zona, {
+        titulo: data.titulo, proposito: data.proposito, duracion: data.duracion,
+        alComenzar: function(){ iniciar(data); }
+      });
+    }).catch(function(e){
+      zona.innerHTML = '<div class="card card-alerta"><h3>⚠️ No se pudo cargar</h3>' +
+        '<p>Ábrela con un servidor de prueba (python3 -m http.server).</p>' +
+        '<p>Detalle: <code>' + Juego.esc(e.message) + '</code></p></div>';
+    });
+  }
+  arrancar();
+})();
+</script>
+</body>
+</html>

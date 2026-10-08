@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reto Final: Defensor Digital — COLÓN DIGITAL</title>
+<meta name="description" content="Reto Final: 10 preguntas de todo el taller de Seguridad Digital. Sin registro, resultado privado, 4 niveles.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🏆 Reto Final</h1>
+    <p class="subtitulo">Defensor Digital — 10 preguntas de todo el taller</p>
+  </section>
+
+  <div id="zona-juego" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona-juego");
+  function arrancar(data){
+    function iniciar(){
+      Juego.intro(zona, {
+        titulo: data.titulo, proposito: data.proposito, duracion: data.duracion,
+        alComenzar: function(){
+          Juego.rondas(zona, data.preguntas, function(puntos, max){
+            var nivel = Juego.nivelReto(puntos);
+            Juego.resultado(zona, {
+              puntos: puntos, max: max,
+              nivel: nivel,
+              insignia: { emoji: nivel.emoji, nombre: nivel.nombre },
+              recomendaciones: data.recomendaciones,
+              alRepetir: iniciar
+            });
+          });
+        }
+      });
+    }
+    iniciar();
+  }
+  Juego.cargar("../../data/quiz-reto.json").then(arrancar).catch(function(e){
+    zona.innerHTML = '<div class="card card-alerta"><h3>⚠️ No se pudo cargar el reto</h3>' +
+      '<p>Si abriste esta página como archivo local, ábrela con un servidor de prueba.</p>' +
+      '<p>Detalle: <code>' + Juego.esc(e.message) + '</code></p></div>';
+  });
+})();
+</script>
+</body>
+</html>

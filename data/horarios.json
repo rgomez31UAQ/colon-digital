@@ -1,0 +1,16 @@
+{
+  "nota": "Horarios generales por día de la Feria de la Raza Colón 2026 (resumen; el detalle completo está en eventos.json). Fuente: programa municipal. Estado: REGISTRADO 2026-10-07.",
+  "estado": "REGISTRADO",
+  "actualizado": "2026-10-07",
+  "horarios": [
+    { "id": "dia0", "dia": "Sábado 10 de octubre (pre-feria: deportes y charreada)", "apertura": "9:00 am", "cierre": "PENDIENTE", "actividad": "Torneos de voleibol y tiro, charreada universitaria", "lugar": "Auditorio municipal, campo de tiro, lienzo charro" },
+    { "id": "dia1", "dia": "Domingo 11 de octubre", "apertura": "9:00 am", "cierre": "Fin del concierto estelar (~12:00 am)", "actividad": "Voleibol femenil, tiro, cabalgata, coronación de Natalia I, Los Boy'z, Los Tigres del Norte", "lugar": "Teatro del Pueblo y sedes deportivas" },
+    { "id": "dia2", "dia": "Lunes 12 de octubre (día del taller COLÓN DIGITAL)", "apertura": "9:00 am", "cierre": "Fin del concierto estelar (~11:00 pm)", "actividad": "Desfile, conferencias (IA, Protege tu vida digital 3 pm, Seguridad digital 4 pm), inauguración oficial, Los Yonic's", "lugar": "Recinto ferial, Foro Alterno, Teatro del Pueblo" },
+    { "id": "dia3", "dia": "Martes 13 de octubre", "apertura": "8:00 am", "cierre": "Fin del concierto estelar (~12:00 am)", "actividad": "Basquetbol, muestra de nopal, talleres, Banda Corona del Rey", "lugar": "Auditorio municipal, Foro Alterno, Teatro del Pueblo" },
+    { "id": "dia4", "dia": "Miércoles 14 de octubre", "apertura": "10:00 am", "cierre": "Fin del concierto estelar (~12:00 am)", "actividad": "Pan de muerto, primeros auxilios, Exterminador", "lugar": "Foro Alterno, Teatro del Pueblo" },
+    { "id": "dia5", "dia": "Jueves 15 de octubre", "apertura": "11:00 am", "cierre": "Fin del concierto estelar (~12:00 am)", "actividad": "Presentación de libro, concurso de la gordita, inicio de derbies, La Voz de Colón, Alacranes Musical", "lugar": "Galería, Foro Alterno, Palenque, Teatro del Pueblo" },
+    { "id": "dia6", "dia": "Viernes 16 de octubre", "apertura": "11:00 am", "cierre": "Fin del concierto estelar (~12:30 am)", "actividad": "Curados de pulque, zumba, derby, Los Players", "lugar": "Foro Alterno, auditorio municipal, Palenque, Teatro del Pueblo" },
+    { "id": "dia7", "dia": "Sábado 17 de octubre", "apertura": "8:00 am", "cierre": "Fin del concierto estelar (~12:30 am)", "actividad": "Charreada, finales de futbol, K-Pop tributo, Los Amos de Nuevo León", "lugar": "Lienzo charro, unidad deportiva Salinas Guevara, Foro Alterno, Teatro del Pueblo" },
+    { "id": "dia8", "dia": "Domingo 18 de octubre (clausura)", "apertura": "8:00 am", "cierre": "Fin del concierto estelar (~12:30 am)", "actividad": "Desfile de carros alegóricos, La Flor Más Bella del Campo, ajedrez, Los Tucanes de Tijuana", "lugar": "Cabecera municipal, Teatro del Pueblo, Foro Alterno, Palenque" }
+  ]
+}

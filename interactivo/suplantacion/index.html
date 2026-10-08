@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil real vs clonado — COLÓN DIGITAL</title>
+<meta name="description" content="Dos perfiles lado a lado: uno es tu tío real, otro es un clon. Descubre las 5 diferencias y guarda la prueba de 10 segundos.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="ban-simulacion">⚠️ SIMULACIÓN EDUCATIVA — ambos perfiles son FICTICIOS</div>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🎭 Real vs clonado</h1>
+    <p class="subtitulo">Uno es tu tío. El otro, un estafador con su foto. ¿Cuál es cuál?</p>
+  </section>
+
+  <div id="zona-juego" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona-juego");
+
+  // 5 rondas: cada una muestra el dato del perfil REAL vs el del CLON
+  var RONDAS = [
+    { senal: "🗓️ Fecha de creación de la cuenta", real: "2016 (9 años de historia)", clon: "Hace 3 semanas",
+      feedback: "El clon es nuevo: los familiares reales llevan años con su cuenta." },
+    { senal: "📷 Fotos del perfil", real: "Doce álbumes, comentarios de la familia", clon: "3 fotos, todas copiadas del perfil real",
+      feedback: "Pocas fotos copiadas = señal clásica del clon." },
+    { senal: "💬 Interacción", real: "Publica, comenta, le felicitan cumpleaños", clon: "Cero interacción: nadie ha escrito nunca",
+      feedback: "Un perfil sin historia social es una fachada vacía." },
+    { senal: "🖼️ Foto de portada", real: "Fotos de su negocio, con vecinos", clon: "Sin portada o una imagen genérica",
+      feedback: "Portada ausente o genérica: el clon solo copió el avatar." },
+    { senal: "📱 Número de teléfono visible", real: "El de SIEMPRE (el que tú ya tienes guardado)", clon: "Un número nuevo que \"pide que lo guardes\"",
+      feedback: "Número nuevo en el perfil clonado: por eso SIEMPRE se confirma llamando al de siempre." }
+  ];
+
+  function iniciar(){
+    var rondas = RONDAS.map(function(r){
+      return {
+        pregunta: r.senal + " — ¿cuál es el del clon?",
+        contexto: '<div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-2);">' +
+          '<div class="card" style="margin:0;"><p style="margin:0; font-size:var(--fs-xs); color:var(--c-gris);">PERFIL A</p>' +
+          '<p style="margin:4px 0; font-weight:700;">' + Juego.esc(r.real) + '</p></div>' +
+          '<div class="card" style="margin:0;"><p style="margin:0; font-size:var(--fs-xs); color:var(--c-gris);">PERFIL B</p>' +
+          '<p style="margin:4px 0; font-weight:700;">' + Juego.esc(r.clon) + '</p></div></div>',
+        opciones: [
+          { texto: "Perfil A", ok: false, feedback: r.feedback },
+          { texto: "Perfil B (el clon)", ok: true, feedback: r.feedback }
+        ]
+      };
+    });
+    Juego.rondas(zona, rondas, function(puntos, max){
+      Juego.resultado(zona, {
+        puntos: puntos, max: max,
+        nivel: { emoji: "🎭", nombre: "Ojo de detector",
+          mensaje: "La prueba de 10 segundos: llama al número de SIEMPRE. Esa llamada salva." },
+        recomendaciones: [
+          { texto: "Checklist completo de suplantación", href: "../../taller/modulos/fraudes/" },
+          { texto: "Ir al Reto Final 🏆", href: "../quiz/" }
+        ],
+        alRepetir: iniciar
+      });
+    });
+  }
+
+  Juego.intro(zona, {
+    titulo: "Perfil real vs clonado",
+    proposito: "Comparamos 5 datos de dos perfiles. En cada ronda, di cuál es el clon. La prueba final: llamar al número de siempre.",
+    duracion: "60 s",
+    alComenzar: iniciar
+  });
+})();
+</script>
+</body>
+</html>

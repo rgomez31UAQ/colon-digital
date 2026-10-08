@@ -1,0 +1,19 @@
+{
+  "nombre": "Feria de la Raza Colón 2026",
+  "estado": "registrado",
+  "edicion": "2026",
+  "fechas": "Del 11 al 18 de octubre de 2026",
+  "fechas_inicio": "2026-10-11",
+  "fechas_fin": "2026-10-18",
+  "lugar": "Colón, Querétaro",
+  "nota": "Datos registrados el 2026-10-07 desde material del organizador (póster oficial del Teatro del Pueblo + programa municipal). Ver docs/registro-verificacion.md. Ajustes posibles hasta el 11 de octubre.",
+  "sitio_oficial": "https://feria.colon.gob.mx/",
+  "destacado": {
+    "taller": "Taller \"Seguridad digital\"",
+    "taller_cuando": "Lunes 12 de octubre, 4:00 pm",
+    "taller_donde": "Foro Alterno",
+    "conferencia": "Conferencia \"Protege tu vida digital\"",
+    "conferencia_cuando": "Lunes 12 de octubre, 3:00 pm",
+    "conferencia_donde": "Foro Alterno"
+  }
+}

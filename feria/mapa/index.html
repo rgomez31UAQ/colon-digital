@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa — Feria de Colón — COLÓN DIGITAL</title>
+<meta name="description" content="Mapa de la Feria de Colón, Querétaro: entrada, seguridad, punto médico, sanitarios, alimentos y más. Solo ubicaciones confirmadas.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido">
+  <section class="hero">
+    <h1>🗺️ Mapa</h1>
+    <p class="subtitulo">Ubícate en la feria</p>
+  </section>
+
+  <p><a href="../">&larr; Volver a la feria</a></p>
+
+  <div class="card pendiente">
+    <p style="margin:0;"><strong>⚠️ Aviso:</strong> el croquis oficial del recinto aún no está
+    disponible. Las ubicaciones aparecen como
+    <span class="chip chip-gris">POR CONFIRMAR</span> hasta que el organizador
+    oficial las valide. No inventamos ubicaciones.</p>
+  </div>
+
+  <img id="croquis" src="" alt="Croquis del recinto de la feria" hidden
+       style="border-radius:var(--r-md); box-shadow:var(--shadow); margin:var(--sp-4) 0;">
+
+  <div data-zona-carga>
+    <div id="lista-puntos" aria-live="polite"></div>
+  </div>
+
+  <div class="card card-ok">
+    <h3>🛡️ Ubícate también en seguridad</h3>
+    <p>Si ves algo sospechoso —un cajero alterado, alguien pidiendo tus datos—
+    repórtalo en el punto de Seguridad.</p>
+    <a class="btn btn-primary" href="../../ayuda/">🆘 Guía de ayuda</a>
+  </div>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../../taller/"><span class="ico">🧠</span>Aprender</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/ui.js" data-pagina="mapa" data-json="../../data/puntos-mapa.json"></script>
+</body>
+</html>

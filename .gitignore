@@ -1,0 +1,18 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+*.swp
+*~
+.vscode/
+.idea/
+
+# Servidores de prueba (logs) y artefactos temporales
+*.log
+*.tmp
+__pycache__/
+*.pyc
+
+# Nota: NO se excluyen qr/, data/ ni docs/ — todo es parte del sitio.

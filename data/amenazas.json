@@ -1,0 +1,20 @@
+{
+  "nota": "Mapa de 15 amenazas (A02 del taller, diapositiva D05). Casi todas son \"la misma estafa con distinta ropa\": contacto + confianza + urgencia. Todo ficticio/educativo.",
+  "amenazas": [
+    { "id": "phishing", "icono": "🎣", "nombre": "Phishing", "que": "Mensaje o correo que imita a una empresa real para robarte datos.", "ejemplo": "«Su cuenta será suspendida en 24 horas».", "senal": "Te apura y te pide clave o datos por un enlace." },
+    { "id": "smishing", "icono": "📦", "nombre": "Smishing", "que": "Estafa por SMS o WhatsApp con enlaces.", "ejemplo": "«Paga $48 para liberar tu paquete».", "senal": "Paquete que no esperabas + pago urgente." },
+    { "id": "vishing", "icono": "📞", "nombre": "Vishing", "que": "Estafa por llamada de \"soporte\" o \"banco\".", "ejemplo": "«Dígame el código de 6 dígitos que le llegó».", "senal": "Te pide códigos: cuelga y llama tú." },
+    { "id": "fraude-pago", "icono": "💳", "nombre": "Fraude de pago", "que": "Te hacen pagar por un canal falso o a una cuenta personal.", "ejemplo": "Boletos \"70% off\" en un dominio inventado.", "senal": "Transferencia a particular + apura." },
+    { "id": "cuentas", "icono": "🔓", "nombre": "Robo de cuentas", "que": "Entran a tu correo o red social con clave robada o adivinada.", "ejemplo": "Tu cuenta manda spam a todos tus contactos.", "senal": "Sin verificación en dos pasos, la clave sola no basta." },
+    { "id": "suplantacion", "icono": "🎭", "nombre": "Suplantación", "que": "Se hacen pasar por ti o por alguien que conoces.", "ejemplo": "Perfil clonado de tu tío con número nuevo.", "senal": "Identidad se comprueba llamando al número de siempre." },
+    { "id": "ingenieria", "icono": "🧠", "nombre": "Ingeniería social", "que": "Manipulan tus emociones para que actúes sin pensar.", "ejemplo": "«Todos los vecinos ya pagaron».", "senal": "Si te apuran o halagan, es técnica, no suerte." },
+    { "id": "malware", "icono": "🦠", "nombre": "Malware", "que": "Programa malicioso que instalas sin darte cuenta.", "ejemplo": "App fuera de la tienda oficial \"para ver partidos\".", "senal": "Instalar fuera de tiendas oficiales = riesgo." },
+    { "id": "ransomware", "icono": "🔒", "nombre": "Ransomware", "que": "Secuestran tus archivos y piden rescate.", "ejemplo": "«Tus fotos están cifradas, paga en 48 h».", "senal": "Nadie paga: se reporta y se restaura desde respaldo." },
+    { "id": "filtracion", "icono": "🗂️", "nombre": "Filtración de datos", "que": "Una empresa o sitio filtra tu información.", "ejemplo": "Tu correo y clave aparecen en una lista.", "senal": "Si se repite clave en todo, una filtración abre todas las puertas." },
+    { "id": "qr", "icono": "🔲", "nombre": "QR malicioso", "que": "Un QR pegado encima de otro o con premio falso.", "ejemplo": "QR \"del doble de boletos\" en un puesto.", "senal": "QR confiable es el que explica a dónde lleva." },
+    { "id": "perfil-falso", "icono": "👤", "nombre": "Perfil falso", "que": "Cuenta inventada que parece de alguien real.", "ejemplo": "Poca historia, pocas fotos, cuenta nueva.", "senal": "Revisa fecha de creación e interacción antes de confiar." },
+    { "id": "deepfake", "icono": "🎬", "nombre": "Deepfake", "que": "Voz o video falsificado con IA que imita a alguien.", "ejemplo": "Audio \"de tu jefe\" pidiendo una transferencia.", "senal": "Verifica por otro canal aunque \"suene\" a la persona." },
+    { "id": "extorsion", "icono": "⚠️", "nombre": "Extorsión", "que": "Te amenazan con algo para que pagues.", "ejemplo": "«Tengo fotos tuyas, paga o las publico».", "senal": "No pagues: quien paga queda marcado. Reporta y cuenta." },
+    { "id": "estafa-amor", "icono": "💔", "nombre": "Estafa romántica", "que": "Falsa relación en línea que termina pidiendo dinero.", "ejemplo": "«Mi amor, tengo un problema, mándame…».", "senal": "Meses de cariño + nunca video llamada + pide dinero." }
+  ]
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULACIÓN EDUCATIVA — Laboratorio de Seguridad Digital</title>
+<style>
+  :root { --azul:#1B496B; --oscuro:#0D1B2A; --rojo:#C1121F; --ambar:#FFA500; --verde:#2E8B57; --crema:#FFF8F0; }
+  * { box-sizing:border-box; font-family:system-ui, Arial, sans-serif; }
+  body { margin:0; background:var(--oscuro); color:#111; }
+  .banner { background:var(--rojo); color:#fff; text-align:center; font-weight:bold;
+            padding:10px; font-size:15px; letter-spacing:.5px; }
+  .banda-lema { background:var(--azul); color:#fff; text-align:center; font-weight:bold;
+                padding:8px; font-size:12px; }
+  .wrap { max-width:520px; margin:18px auto; padding:0 14px; }
+  .card { background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.35);
+          overflow:hidden; margin-bottom:16px; }
+  .card-head { background:#f3f6f8; padding:14px 18px; border-bottom:1px solid #e2e8ec; }
+  .urlbar { background:#e9edf0; border:1px solid #d5dde3; border-radius:20px;
+            padding:7px 14px; font-size:13px; color:#333; }
+  .urlbar b { color:var(--rojo); }
+  .bank { padding:22px 18px; text-align:center; }
+  .bank h1 { font-size:22px; margin:0 0 4px; color:var(--azul); }
+  .bank p.sub { margin:0 0 16px; color:#667; font-size:13px; }
+  label { display:block; text-align:left; font-size:13px; color:#556; margin:10px 0 4px; }
+  input[type=text], input[type=password] { width:100%; padding:11px; border:1px solid #ccd;
+    border-radius:8px; font-size:16px; }
+  .btn { display:block; width:100%; border:0; border-radius:8px; padding:13px;
+         font-size:16px; font-weight:bold; margin-top:16px; cursor:pointer; }
+  .btn-id { background:var(--azul); color:#fff; }
+  .btn-no { background:var(--verde); color:#fff; }
+  .lecciones { padding:18px; }
+  .lecciones h2 { font-size:18px; margin:0 0 6px; color:var(--verde); }
+  .senal { background:var(--crema); border-left:5px solid var(--ambar); border-radius:6px;
+           padding:10px 12px; font-size:14px; margin:10px 0; }
+  .pista { font-size:12px; color:#667; margin-top:14px; text-align:center; }
+  .foot { text-align:center; color:#9ab; font-size:11px; padding:14px 0 22px; }
+  button.misc { background:none; border:0; color:#fff; text-decoration:underline;
+                font-size:13px; cursor:pointer; padding:0 6px; }
+  .acciones { text-align:center; margin-top:6px; }
+</style>
+</head>
+<body>
+  <div class="banner">⚠️ SIMULACIÓN EDUCATIVA — CONTENIDO FICTICIO · NADA SE ENVÍA · NADA SE GUARDA</div>
+
+  <!-- ESCENA 1: página falsa ficticia -->
+  <div id="escena-falsa" class="wrap">
+    <div class="card">
+      <div class="card-head">
+        <div class="urlbar">🔒 https://<b>banco-grande-seguridad24.xyz</b>/login — Banco Grande</div>
+      </div>
+      <div class="bank">
+        <h1>Banco Grande</h1>
+        <p class="sub">Detectamos actividad inusual. Verifica tu cuenta en 24 horas.</p>
+        <label>Usuario o tarjeta</label>
+        <input id="u" type="text" autocomplete="off" placeholder="(puedes dejar vacío)">
+        <label>Contraseña</label>
+        <input id="p" type="password" autocomplete="off" placeholder="(puedes dejar vacío)">
+        <button class="btn btn-id" onclick="entrar()">ENTRAR</button>
+        <div class="pista">💡 Puedes escribir lo que quieras o dejar los campos vacíos: nada se envía, nada se guarda.</div>
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="misc" onclick="irALecciones()">Mejor no entrar: ver la lección</button>
+    </div>
+  </div>
+
+  <!-- ESCENA 2: lección didáctica -->
+  <div id="escena-leccion" class="wrap" style="display:none">
+    <div class="card">
+      <div class="lecciones">
+        <h2 id="titulo-leccion">¡Esa es la lección del laboratorio! 🛡️</h2>
+        <div class="senal">1 · <b>Mira la URL primero:</b> <i>banco-grande-seguridad24.xyz</i> NO es el dominio del banco. Los guiones, palabras pegadas y .xyz son señales.</div>
+        <div class="senal">2 · <b>Un banco real:</b> jamás te avisa "tienes 24 horas" por un enlace de correo o SMS: te avisa por su app oficial y te pide ir a sucursal si algo grave.</div>
+        <div class="senal">3 · <b>El candado 🔒</b> solo significa "viaje cifrado", NO "sitio confiable": los estafadores ponen candado también.</div>
+        <div class="senal">4 · <b>La regla del taller:</b> DETEN — VE LA URL — VERIFICA en la app oficial — y solo entonces decide.</div>
+        <button class="btn btn-no" onclick="reset()">🔁 Repetir la demo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="banda-lema">PIENSA • VERIFICA • PROTEGE • REPORTA — COLÓN DIGITAL · TALLER DE SEGURIDAD DIGITAL · FERIA DE COLÓN</div>
+  <div class="foot">SIMULACIÓN EDUCATIVA · laboratorio local · sin conexión externa · sin captura de datos</div>
+
+<script>
+  function entrar() {
+    var u = document.getElementById('u').value.trim();
+    var t = document.getElementById('titulo-leccion');
+    if (u.length === 0) {
+      t.textContent = '¡Bien pensado: dejar vacío también es ganar! 🛡️';
+    } else {
+      t.textContent = 'Casi… justo eso cuenta el estafador 😉 — ahora ya sabes mirar primero 🛡️';
+    }
+    document.getElementById('escena-falsa').style.display = 'none';
+    document.getElementById('escena-leccion').style.display = 'block';
+  }
+  function irALecciones() {
+    document.getElementById('titulo-leccion').textContent = '¡Esa es la lección del laboratorio! 🛡️';
+    document.getElementById('escena-falsa').style.display = 'none';
+    document.getElementById('escena-leccion').style.display = 'block';
+  }
+  function reset() {
+    document.getElementById('u').value = '';
+    document.getElementById('p').value = '';
+    document.getElementById('escena-leccion').style.display = 'none';
+    document.getElementById('escena-falsa').style.display = 'block';
+  }
+</script>
+</body>
+</html>

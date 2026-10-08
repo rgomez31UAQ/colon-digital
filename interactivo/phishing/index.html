@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿TÚ CAERÍAS? — COLÓN DIGITAL</title>
+<meta name="description" content="Un correo ficticio de \"cuenta suspendida\": ¿qué haces? Análisis de las 7 señales de phishing. Resultado privado.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="ban-simulacion">⚠️ SIMULACIÓN EDUCATIVA — el correo es FICTICIO (no lo copies ni lo reenvíes)</div>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🎣 ¿TÚ CAERÍAS?</h1>
+    <p class="subtitulo">Un correo real-ficticio en tu pantalla: decide</p>
+  </section>
+
+  <div id="zona-juego" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona-juego");
+
+  var CORREO = '<div class="card card-alerta" style="font-family:monospace; font-size:var(--fs-sm);">' +
+    '<p style="margin:0 0 var(--sp-2);"><strong>De:</strong> soporte.atencion.estricta@correo-seguridad-cuenta.info<br>' +
+    '<strong>Asunto:</strong> ⚠️ SU CUENTA SERÁ SUSPENDIDA EN 24 HORAS</p>' +
+    '<p>Estimado usuario: detectamos un uso no autorizado. Para evitar la suspensión definitiva, ' +
+    'confirme su identidad y contraseña en el siguiente enlace <strong>antes de 24 horas</strong>. ' +
+    'Atentamente, Equipo de Soporte.</p></div>';
+
+  var SENALES = [
+    ["1. Urgencia artificial", "\"24 horas\", \"definitiva\": el objetivo es que no pienses."],
+    ["2. Remitente raro", "El dominio correo-seguridad-cuenta.info no es de un servicio real."],
+    ["3. Trato genérico", "\"Estimado usuario\": las empresas reales saben cómo te llamas."],
+    ["4. Pide tus datos", "Ningún servicio legítimo pide tu contraseña por un enlace. NINGUNO."],
+    ["5. Amenaza difusa", "\"Uso no autorizado\" sin detalle verificable: está diseñado para asustar."],
+    ["6. Enlace a \"confirmar identidad\"", "Al pasar el dedo sobre el enlace (sin presionar) la dirección de destino delata."],
+    ["7. Despedida impersonal", "\"Atentamente, Equipo de Soporte\" sin firma verificable."]
+  ];
+
+  function analizar(feedback){
+    var html = '<div class="card ' + (feedback.ok ? 'card-ok' : '') + '">' +
+      '<p style="font-weight:700;">' + Juego.esc(feedback.texto) + '</p></div>' +
+      '<h2 style="color:var(--c-azul-claro);">Las 7 señales de este correo</h2>';
+    SENALES.forEach(function(s){
+      html += '<div class="card"><h3>' + Juego.esc(s[0]) + '</h3><p>' + Juego.esc(s[1]) + '</p></div>';
+    });
+    html += '<div class="card card-ok"><h3>🎁 Comparte la lección</h3>' +
+      '<p style="font-family:monospace; font-size:var(--fs-sm); background:var(--c-crema); border-radius:var(--r-sm); padding:var(--sp-3);">' +
+      'Aprendí las 7 señales de un correo falso 🎣 Antes de hacer clic, piensa. PIENSA • VERIFICA • PROTEGE • REPORTA</p>' +
+      '<p><a class="btn btn-secundario" href="../../taller/modulos/phishing/">Leer el módulo completo</a> ' +
+      '<a class="btn btn-primary" href="../quiz/">Ir al Reto Final 🏆</a></p></div>' +
+      '<button class="btn btn-secundario" id="j-repetir">↻ Jugar otra vez</button>';
+    zona.innerHTML = html;
+    zona.querySelector("#j-repetir").addEventListener("click", pintar);
+    zona.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function pintar(){
+    zona.innerHTML =
+      '<div class="card"><h3>📬 Recibiste este correo hace unos minutos…</h3>' +
+      CORREO +
+      '<p style="font-weight:700;">¿Qué haces?</p>' +
+      '<button class="btn btn-primary" id="op-abrir" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">📧 ABRIR EL ENLACE</button>' +
+      '<button class="btn btn-primary" id="op-mirar" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">👀 MIRAR CON CALMA</button>' +
+      '<button class="btn btn-primary" id="op-dudas" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">🤔 TENGO DUDAS</button>' +
+      '</div>';
+    zona.querySelector("#op-abrir").addEventListener("click", function(){ analizar({
+      ok: false,
+      texto: "Casi… justo eso cuenta el estafador 😉 — ahora ya sabes mirar primero: recuerda las 7 señales."
+    }); });
+    zona.querySelector("#op-mirar").addEventListener("click", function(){ analizar({
+      ok: true,
+      texto: "¡Esa es la lección del taller! Con UNA de las 7 señales ya es suficiente para no hacer clic."
+    }); });
+    zona.querySelector("#op-dudas").addEventListener("click", function(){ analizar({
+      ok: true,
+      texto: "¡Dudar también es ganar! Cualquier duda se verifica por la app oficial, jamás por el enlace del correo."
+    }); });
+  }
+
+  if (window.Juego) { pintar(); } else { location.reload(); }
+})();
+</script>
+</body>
+</html>

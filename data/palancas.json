@@ -1,0 +1,44 @@
+{
+  "nota": "A08: ¿qué emoción manipulan en ti? 5 mensajes ficticios, 7 palancas siempre visibles. Tono: no es debilidad; es humano.",
+  "titulo": "¿Qué emoción manipulan en ti?",
+  "proposito": "En cada mensaje, elige la palanca que el estafador está usando. Detectarla es la fortaleza.",
+  "duracion": "60 s",
+  "palancas": ["Presión social", "Urgencia", "Miedo", "Autoridad", "Confianza", "Curiosidad", "Recompensa"],
+  "mensajes": [
+    {
+      "texto": "«Todos los vecinos del grupo ya pagaron la gratitud de la colonia. No seas el único…»",
+      "correcta": "Presión social",
+      "feedback": "Que \"todos lo hagan\" no lo hace correcto: la presión del grupo es una palanca, no una prueba."
+    },
+    {
+      "texto": "«Solo tienes 10 minutos para confirmar o se cancela tu cita.»",
+      "correcta": "Urgencia",
+      "feedback": "Si te apuran, es para que no pienses. Lo legítimo se puede verificar con calma."
+    },
+    {
+      "texto": "«Vimos actividad atípica en tu cuenta. Actúa ahora o la suspendemos.»",
+      "correcta": "Miedo",
+      "feedback": "El miedo paraliza el pensamiento: la amenaza difusa sin detalle verificable es la señal."
+    },
+    {
+      "texto": "«Hola, soy de sistemas; pásame tu acceso para revisarte el equipo.»",
+      "correcta": "Autoridad",
+      "feedback": "Nadie legítimo pide tu acceso así: el rango se inventa, la petición delata."
+    },
+    {
+      "texto": "«¡Felicidades! Ganaste el sorteo de la feria 🎉 Solo confirma tus datos para reclamar.»",
+      "correcta": "Recompensa",
+      "feedback": "Si no participaste, no ganaste: el premio inesperado es el anzuelo más viejo."
+    }
+  ],
+  "consejos": {
+    "Presión social": "El grupo no paga tus decisiones. Pregúntate: ¿lo haría si nadie más lo hubiera hecho?",
+    "Urgencia": "Regla práctica: si dice \"solo hoy\", espera hoy. Lo verdadero sigue existiendo mañana.",
+    "Miedo": "Ante una amenaza, respira y verifica por el canal oficial: el susto se confirma o se disipa.",
+    "Autoridad": "Los cargos no se comprueban por teléfono: cuelga y llama tú al número oficial.",
+    "Confianza": "Que suene amable no es prueba. La confianza se gana con hechos verificables.",
+    "Curiosidad": "«Mira quién vio tu perfil» — el enlace ES la trampa. La curiosidad puede esperar un clic.",
+    "Recompensa": "Si un premio te apura, es porque quiere que no pienses. Si no participaste, no ganaste."
+  },
+  "cierre": "No es debilidad; es humano. Detectar la palanca es la fortaleza."
+}

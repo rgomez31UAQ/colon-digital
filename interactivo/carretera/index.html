@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La carretera de 7 casillas — COLÓN DIGITAL</title>
+<meta name="description" content="Anatomía de una estafa: CONTACTO → CONFIANZA → URGENCIA → PETICIÓN → PRESIÓN → ACCIÓN → FRAUDE. ¿Dónde frenarías tú?">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+<style>
+/* Solo para esta página: el caminito (tokens del sistema) */
+.camino { display:flex; flex-wrap:wrap; gap:var(--sp-2); justify-content:center; margin:var(--sp-4) 0; }
+.casilla {
+  flex:1 1 110px; max-width:130px; min-height:96px;
+  background:var(--c-crema); border-radius:var(--r-md); box-shadow:var(--shadow);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:4px; padding:var(--sp-2); opacity:.35; transition:opacity .3s;
+  color:var(--c-texto); font-weight:700; font-size:var(--fs-xs);
+}
+.casilla .ico { font-size:26px; }
+.casilla.activa { opacity:1; outline:3px solid var(--c-ambar); }
+.casilla.final.activa { outline-color:var(--c-rojo); }
+.flecha { align-self:center; color:var(--c-azul-claro); font-weight:800; }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>🎭 Anatomía de una estafa</h1>
+    <p class="subtitulo">Todas siguen este caminito. Vamos a caminarlo juntos.</p>
+  </section>
+
+  <div id="zona" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona");
+
+  var CASILLAS = [
+    { n: "CONTACTO", ico: "📨", frase: "Te escriben, te llaman, alguien dice ser tu banco." },
+    { n: "CONFIANZA", ico: "🙂", frase: "Suena serio, correcto, amable. Ya está en tu cabeza." },
+    { n: "URGENCIA", ico: "⏰", frase: "«Ahora o se cancela.» Si te apuran: eso ES el truco." },
+    { n: "PETICIÓN", ico: "✋", frase: "«Solo verifica tu clave» o «manda un adelanto»." },
+    { n: "PRESIÓN", ico: "😣", frase: "Insisten, llaman de nuevo, te responden mal si dudas.", pausa: true },
+    { n: "ACCIÓN", ico: "💸", frase: "Haces clic, das el código o mandas el dinero." },
+    { n: "FRAUDE", ico: "🚨", frase: "Ya te quitaron algo. PERO: la puerta se detiene ANTES de aquí.", final: true }
+  ];
+
+  function pintarCamino(activas){
+    var html = '<div class="camino">';
+    CASILLAS.forEach(function(c, i){
+      html += '<div class="casilla' + (c.final ? ' final' : '') + (i < activas ? ' activa' : '') + '">' +
+        '<span class="ico">' + c.ico + '</span>' + c.n + '</div>';
+      if (i < CASILLAS.length - 1) html += '<span class="flecha">→</span>';
+    });
+    return html + '</div>';
+  }
+
+  function reproducir(){
+    var i = 0;
+    zona.innerHTML = pintarCamino(0) + '<div id="detalle" class="card" style="min-height:110px;">' +
+      '<p style="text-align:center; color:var(--c-gris);">El caminito se recorre solo… míralo con calma.</p></div>';
+    function paso(){
+      if (i >= CASILLAS.length) { pregunta(); return; }
+      var c = CASILLAS[i];
+      zona.innerHTML = pintarCamino(i + 1) + '<div id="detalle" class="card">' +
+        '<h3>' + c.ico + ' ' + Juego.esc(c.n) + '</h3><p>' + Juego.esc(c.frase) + '</p></div>';
+      if (c.pausa) { pregunta(); return; }
+      i++;
+      setTimeout(paso, 1600);
+    }
+    paso();
+  }
+
+  function pregunta(){
+    zona.innerHTML = pintarCamino(CASILLAS.length) +
+      '<div class="card card-alerta"><h3>⏸️ Pausa en PRESIÓN: ¿dónde frenarías tú?</h3>' +
+      '<button class="btn btn-primary" data-r="1" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">⏰ En la URGENCIA — cuando me apuran</button>' +
+      '<button class="btn btn-primary" data-r="2" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">✋ En la PETICIÓN — cuando me piden algo</button>' +
+      '<button class="btn btn-primary" data-r="3" style="display:block; width:100%; margin:var(--sp-2) 0; text-align:left;">🛑 Antes de la ACCIÓN — antes de mandar dinero o datos</button>' +
+      '<div id="fb"></div></div>';
+    zona.querySelectorAll("[data-r]").forEach(function(b){
+      b.addEventListener("click", function(){
+        zona.querySelector("#fb").innerHTML =
+          '<div class="card card-ok"><p><strong>¡Excelente!</strong> Las tres respuestas valen: ' +
+          'la estafa solo se detiene ANTES de actuar. La puerta la frenas TÚ.</p>' +
+          '<div style="display:flex; gap:var(--sp-2); flex-wrap:wrap;">' +
+          '<button class="btn btn-secundario" id="repetir">↻ Ver la secuencia otra vez</button>' +
+          '<a class="btn btn-primary" href="../quiz/">Ir al Reto Final 🏆</a></div></div>';
+        zona.querySelector("#repetir").addEventListener("click", reproducir);
+      });
+    });
+  }
+
+  if (window.Juego) { reproducir(); }
+})();
+</script>
+</body>
+</html>

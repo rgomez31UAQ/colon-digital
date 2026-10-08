@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de 15 amenazas — COLÓN DIGITAL</title>
+<meta name="description" content="15 amenazas digitales en tarjetas: qué es, ejemplo y señal de alerta. Marca las que ya has visto en la vida real.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/svg+xml" href="../../assets/icons/escudo.svg">
+<link rel="stylesheet" href="../../css/base.css">
+<style>
+/* Solo para esta página: tarjetas girables (usa los tokens del sistema) */
+.tarjetas { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:var(--sp-3); }
+.tcard { perspective:800px; }
+.tcard-inner { position:relative; width:100%; min-height:150px; transition:transform .4s; transform-style:preserve-3d; cursor:pointer; }
+.tcard.girada .tcard-inner { transform:rotateY(180deg); }
+.tcaras { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--r-md); padding:var(--sp-3); font-size:var(--fs-xs); }
+.cara-frente { background:var(--c-azul-medio); color:var(--c-blanco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; font-weight:700; box-shadow:var(--shadow); }
+.cara-frente .ico { font-size:30px; }
+.cara-reves { background:var(--c-crema); color:var(--c-texto); transform:rotateY(180deg); overflow:hidden auto; box-shadow:var(--shadow); }
+.cara-reves strong { color:var(--c-azul-medio); }
+.tcard.vista .cara-frente { background:var(--c-ambar); color:var(--c-azul-oscuro); }
+@media (prefers-reduced-motion: reduce) { .tcard-inner { transition:none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="logo" href="../../">🛡️ COLÓN DIGITAL</a>
+</header>
+
+<main id="contenido" class="ancho-interactivo">
+  <section class="hero">
+    <h1>⚠️ Mapa del riesgo</h1>
+    <p class="subtitulo">15 amenazas. Toca las que quieras conocer — y marca las que ya has visto en la vida real.</p>
+  </section>
+
+  <div id="zona" aria-live="polite"></div>
+
+  <p><a href="../">&larr; Volver a los retos</a></p>
+</main>
+
+<footer>
+  <div class="lema">PIENSA • VERIFICA • PROTEGE • REPORTA</div>
+  <div style="background:var(--c-azul-oscuro); color:var(--c-gris-claro); text-align:center; padding:var(--sp-5) var(--sp-4) var(--sp-8);">
+    <p style="margin:0 auto; max-width:34rem;">COLÓN DIGITAL — proyecto comunitario para la Feria de Colón, Querétaro.
+    Contenido educativo con simulaciones ficticias. Sin registro, sin captura de datos.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <a href="../../"><span class="ico">🏠</span>Inicio</a>
+  <a href="../../seguridad/"><span class="ico">🛡️</span>Protegerme</a>
+  <a href="../"><span class="ico">🎮</span>Retos</a>
+  <a href="../../ayuda/" class="ayuda"><span class="ico">🆘</span>AYUDA</a>
+</nav>
+
+<script src="../../js/juego.js"></script>
+<script>
+(function(){
+  "use strict";
+  var zona = document.getElementById("zona");
+  var vistas = {};
+
+  function resultado(){
+    var n = Object.keys(vistas).length;
+    zona.innerHTML =
+      '<div class="card card-ok" style="text-align:center;">' +
+      '<h3>Ya conoces ' + n + ' de 15</h3>' +
+      '<p>' + (n >= 3
+        ? 'El taller profundiza en las que más te llegan. Casi todas son la misma estafa con distinta ropa.'
+        : 'Explora más tarjetas: casi todas son la misma estafa con distinta ropa — contacto, confianza, urgencia.') + '</p>' +
+      '<div style="display:flex; gap:var(--sp-2); justify-content:center; flex-wrap:wrap;">' +
+      '<button class="btn btn-secundario" id="volver">↻ Volver al mapa</button>' +
+      '<a class="btn btn-primary" href="../quiz/">Ir al Reto Final 🏆</a></div></div>';
+    zona.querySelector("#volver").addEventListener("click", pintar);
+  }
+
+  function pintar(data){
+    var html = '<div class="tarjetas">';
+    data.amenazas.forEach(function(a){
+      html += '<div class="tcard" data-id="' + a.id + '">' +
+        '<div class="tcard-inner">' +
+        '<div class="tcaras cara-frente"><span class="ico">' + Juego.esc(a.icono) + '</span>' + Juego.esc(a.nombre) + '</div>' +
+        '<div class="tcaras cara-reves">' +
+        '<strong>' + Juego.esc(a.que) + '</strong>' +
+        '<p style="margin:4px 0;">Ej.: ' + Juego.esc(a.ejemplo) + '</p>' +
+        '<p style="margin:4px 0; color:var(--c-rojo); font-weight:700;">🚨 ' + Juego.esc(a.senal) + '</p>' +
+        '<button class="chip chip-ambar" data-marca="' + a.id + '" style="border:0; cursor:pointer;"> YA LA HE VISTO</button>' +
+        '</div></div></div>';
+    });
+    html += '</div>' +
+      '<div class="card" style="margin-top:var(--sp-4);"><p style="margin:0;">' +
+      'Marcadas: <strong id="cuenta">0</strong> de 15 — ' +
+      '<button class="btn btn-primary" id="terminar">Ya exploré: ver mi resultado</button></p></div>';
+    zona.innerHTML = html;
+
+    zona.querySelectorAll(".tcard").forEach(function(card){
+      card.addEventListener("click", function(ev){
+        if (ev.target.closest("button")) return;
+        card.classList.toggle("girada");
+      });
+    });
+    zona.querySelectorAll("[data-marca]").forEach(function(b){
+      b.addEventListener("click", function(ev){
+        ev.stopPropagation();
+        var card = b.closest(".tcard");
+        card.classList.add("girada");
+        card.classList.toggle("vista");
+        if (card.classList.contains("vista")) vistas[b.dataset.marca] = true; else delete vistas[b.dataset.marca];
+        zona.querySelector("#cuenta").textContent = Object.keys(vistas).length;
+      });
+    });
+    zona.querySelector("#terminar").addEventListener("click", resultado);
+  }
+
+  Juego.cargar("../../data/amenazas.json").then(pintar).catch(function(e){
+    zona.innerHTML = '<div class="card card-alerta"><h3>⚠️ No se pudo cargar</h3>' +
+      '<p>Ábrela con un servidor de prueba (python3 -m http.server).</p>' +
+      '<p>Detalle: <code>' + Juego.esc(e.message) + '</code></p></div>';
+  });
+})();
+</script>
+</body>
+</html>

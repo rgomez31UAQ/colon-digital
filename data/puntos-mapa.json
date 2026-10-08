@@ -1,0 +1,28 @@
+{
+  "nota": "Sedes de la Feria de la Raza Colón 2026, según el programa municipal (docs/registro-verificacion.md). Las sedes ya son oficiales; las coordenadas/posiciones en el croquis siguen PENDIENTE hasta tener el plano del recinto. Estado: REGISTRADO 2026-10-07.",
+  "estado": "REGISTRADO",
+  "actualizado": "2026-10-07",
+  "croquis": "PENDIENTE",
+  "puntos": [
+    { "id": "teatro-pueblo", "icono": "🎪", "nombre": "Teatro del Pueblo", "ubicacion": "RECINTO FERIAL (posición en croquis PENDIENTE)", "detalle": "Conciertos estelares, coronación, inauguración y talento local. Cartelera del 11 al 18 de octubre." },
+    { "id": "foro-alterno", "icono": "🗣️", "nombre": "Foro Alterno", "ubicacion": "RECINTO FERIAL (posición en croquis PENDIENTE)", "detalle": "Conferencias, talleres y concursos. AQUÍ está el Taller de Seguridad Digital (12 oct, 4:00 pm) y la Conferencia Protege tu vida digital (3:00 pm)." },
+    { "id": "auditorio", "icono": "🏟️", "nombre": "Auditorio municipal", "ubicacion": "PENDIENTE", "detalle": "Torneos de voleibol y basquetbol, clase de zumba." },
+    { "id": "tiro", "icono": "🎯", "nombre": "Campo de tiro \"Cristóbal Colón\"", "ubicacion": "PENDIENTE", "detalle": "Torneo de tiro (10 y 11 de octubre)." },
+    { "id": "lienzo-charro", "icono": "🐎", "nombre": "Lienzo charro \"La Mangana\"", "ubicacion": "PENDIENTE", "detalle": "Charreadas (10, 17 y 18 de octubre)." },
+    { "id": "ajuchitlan", "icono": "🐴", "nombre": "Corral de toros de Ajuchitlán", "ubicacion": "PENDIENTE", "detalle": "Salida de la cabalgata de feria (11 de octubre)." },
+    { "id": "unidad-deportiva", "icono": "⚽", "nombre": "Unidad deportiva \"Ing. Javier Salinas Guevara\"", "ubicacion": "PENDIENTE", "detalle": "Futbol 5 y futbol 7 (17 de octubre)." },
+    { "id": "palenque", "icono": "🐓", "nombre": "Palenque", "ubicacion": "PENDIENTE", "detalle": "Derby de gallos (15 al 18 de octubre)." },
+    { "id": "galeria", "icono": "🖼️", "nombre": "Galería", "ubicacion": "PENDIENTE", "detalle": "Presentación de libro (15 de octubre)." },
+    { "id": "recinto-ferial", "icono": "🎡", "nombre": "Recinto ferial", "ubicacion": "PENDIENTE", "detalle": "Desfile de feria, juegos mecánicos, pabellones y zona de alimentos." },
+    { "id": "cabecera", "icono": "🛣️", "nombre": "Calles de la cabecera municipal", "ubicacion": "PENDIENTE", "detalle": "Desfile de carros alegóricos de La Flor Más Bella del Campo (18 de octubre, 8:00 am)." },
+    { "id": "taller-colon-digital", "icono": "🛡️", "nombre": "COLÓN DIGITAL — Taller y Centro de Ayuda", "ubicacion": "Foro Alterno (12 de octubre)", "detalle": "Taller \"Seguridad digital\" 4:00 pm y Conferencia \"Protege tu vida digital\" 3:00 pm. Material también disponible aquí en la web." },
+    { "id": "entrada", "icono": "📍", "nombre": "Entradas del recinto", "ubicacion": "PENDIENTE", "detalle": "PENDIENTE: definir cuando exista el croquis oficial." },
+    { "id": "seguridad", "icono": "🛡️", "nombre": "Punto de Seguridad", "ubicacion": "PENDIENTE", "detalle": "PENDIENTE: lo confirma el organizador oficial." },
+    { "id": "medico", "icono": "🚑", "nombre": "Punto médico", "ubicacion": "PENDIENTE", "detalle": "PENDIENTE: lo confirma el organizador oficial." },
+    { "id": "info", "icono": "ℹ️", "nombre": "Punto de Información", "ubicacion": "PENDIENTE", "detalle": "PENDIENTE: lo confirma el organizador oficial." },
+    { "id": "sanitarios", "icono": "🚻", "nombre": "Sanitarios", "ubicacion": "PENDIENTE", "detalle": "PENDIENTE." },
+    { "id": "alimentos", "icono": "🍔", "nombre": "Zona de alimentos", "ubicacion": "PENDIENTE", "detalle": "Antojitos, platillos queretanos, carnes, panes, postres y bebidas (según el programa municipal)." },
+    { "id": "expositores", "icono": "🛍️", "nombre": "Pabellones de artesanos y productores", "ubicacion": "PENDIENTE", "detalle": "Textiles, decoración, productos agrícolas, quesos y vinos de Colón y localidades cercanas." },
+    { "id": "ayuda", "icono": "🆘", "nombre": "Punto de Ayuda (ente CO de taller)", "ubicacion": "Foro Alterno (12 de octubre) / en la web", "detalle": "Guía NECESITO AYUDA disponible en la web en todo momento." }
+  ]
+}
