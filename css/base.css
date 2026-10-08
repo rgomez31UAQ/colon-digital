@@ -1,16 +1,7 @@
-/* ============================================================
-   COLÓN DIGITAL — base.css (FASE 16: rediseño visual)
-   Lenguaje de diseño inspirado en portales informativos modernos:
-   header fijo con blur + nav en pastillas, hero con degradado radial,
-   tarjetas flotantes en cuadrícula, modo claro/oscuro automático.
-   Mantiene la identidad del proyecto: azul marino, ámbar, crema.
-   PIENSA • VERIFICA • PROTEGE • REPORTA
-   ============================================================ */
 
 :root {
   color-scheme: light dark;
 
-  /* ---- Paleta base (contraste AA verificado) ---- */
   --c-azul-oscuro: #0D1B2A;
   --c-azul-medio:  #1B496B;
   --c-azul-claro:  #2E6E96;   /* acento legible sobre fondo claro */
@@ -23,23 +14,19 @@
   --c-gris-claro:  #A9B6C2;   /* texto secundario sobre fondo oscuro */
   --c-blanco:      #FFFFFF;
 
-  /* ---- Superficies del tema claro ---- */
   --c-pagina:      #F4F1EA;   /* fondo general cálido */
   --c-borde:       rgba(20, 33, 46, .10);
   --c-flotante:    rgba(20, 33, 46, .06);
   --c-hero-txt:    #FFFFFF;
   --c-hero-suave:  rgba(255, 255, 255, .82);
 
-  /* ---- Tipografía ---- */
   --ff: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --fs-xs: 13px; --fs-sm: 14px; --fs-base: 16.5px; --fs-md: 19px;
   --fs-lg: 23px; --fs-xl: 30px; --fs-hero: clamp(34px, 6vw, 44px);
 
-  /* ---- Espaciado (escala 4px) ---- */
   --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
   --sp-5: 24px; --sp-6: 32px; --sp-8: 48px; --sp-10: 64px;
 
-  /* ---- Radios y sombra ---- */
   --r-sm: 10px; --r-md: 14px; --r-lg: 22px; --r-pill: 999px;
   --shadow: 0 1px 3px rgba(13, 27, 42, .07), 0 8px 24px rgba(13, 27, 42, .06);
 }
@@ -57,7 +44,6 @@
   }
 }
 
-/* ---------- Reset ligero ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
@@ -77,7 +63,6 @@ main section, main .card { scroll-margin-top: 4.75rem; }
         padding: var(--sp-2) var(--sp-3); z-index: 100; border-radius: 0 0 var(--r-sm) 0; }
 .skip:focus { left: 0; }
 
-/* ---------- Header: fijo, difuminado, con nav en pastillas ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 60;
   background: rgba(13, 27, 42, .92);
@@ -100,7 +85,6 @@ nav.main a:hover { background: rgba(255, 255, 255, .12); color: var(--c-blanco);
 nav.main a.activo { background: var(--c-ambar); color: var(--c-azul-oscuro); }
 @media (max-width: 820px) { nav.main { display: none; } }
 
-/* ---------- Hero: banda marina con degradado radial ---------- */
 .hero {
   padding: var(--sp-8) var(--sp-4) var(--sp-6);
   text-align: center; color: var(--c-hero-txt);
@@ -114,7 +98,6 @@ nav.main a.activo { background: var(--c-ambar); color: var(--c-azul-oscuro); }
 .hero .hero-logo { width: 84px; height: auto; margin: 0 auto var(--sp-3); }
 .hero .lead { color: var(--c-hero-suave); max-width: 36rem; margin: 0 auto var(--sp-4); font-size: 1.02rem; }
 
-/* ---------- Botones ---------- */
 .btn {
   display: inline-block; text-decoration: none; font-weight: 700;
   padding: .55rem 1.15rem; border-radius: var(--r-pill);
@@ -125,7 +108,6 @@ nav.main a.activo { background: var(--c-ambar); color: var(--c-azul-oscuro); }
 .btn-secundario { background: transparent; color: var(--c-azul-claro); border: 2px solid var(--c-azul-claro); }
 .btn-rojo { background: var(--c-rojo); color: var(--c-blanco); }
 
-/* Llamadas de acción del hero: tarjetas-botón sobre la banda */
 .btn-quick {
   display: block; max-width: 540px; margin: var(--sp-2) auto;
   padding: .8rem 1.1rem; text-align: left; text-decoration: none;
@@ -139,7 +121,6 @@ nav.main a.activo { background: var(--c-ambar); color: var(--c-azul-oscuro); }
 .btn-quick.ayuda { background: var(--c-rojo); border-color: transparent; }
 .btn-quick.ayuda:hover { background: #a30f19; }
 
-/* ---------- Tarjetas ---------- */
 .card {
   background: var(--c-crema); border: 1px solid var(--c-borde); border-radius: var(--r-md);
   padding: 1.15rem 1.25rem; margin: var(--sp-3) 0;
@@ -154,8 +135,6 @@ nav.main a.activo { background: var(--c-ambar); color: var(--c-azul-oscuro); }
 a.card { display: block; text-decoration: none; }
 a.card:hover { border-color: var(--c-azul-claro); }
 
-/* Cuadrícula automática: una sección con 2+ tarjetas se reparte en columnas
-   (mejora progresiva: sin soporte :has(), las tarjetas se apilan como siempre) */
 main section:has(> .card + .card),
 main.cards-duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr)); gap: var(--sp-3); }
 main section:has(> .card + .card) > h2,
@@ -184,7 +163,6 @@ main section:has(> .card + .card) > h2 { grid-column: 1 / -1; margin-top: var(--
 .qr-box img { width: 210px; height: 210px; margin: 0 auto; }
 .qr-box .qr-req { font-weight: 800; color: var(--c-ambar); }
 
-/* ---------- Galerías (infografías / videos) ---------- */
 .galeria-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: var(--sp-3); margin: var(--sp-4) 0;
@@ -194,14 +172,12 @@ main section:has(> .card + .card) > h2 { grid-column: 1 / -1; margin-top: var(--
 .galeria-grid figcaption { font-size: var(--fs-sm); color: var(--c-texto); padding: var(--sp-2); }
 .video-item video { width: 100%; height: auto; border-radius: var(--r-md); background: #000; }
 
-/* ---------- Datos rápidos (clave / valor / detalle) ---------- */
 .quick { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--sp-3); margin: var(--sp-3) 0; }
 .quick .q { background: var(--c-pagina); border: 1px solid var(--c-borde); border-radius: var(--r-sm); padding: .7rem .9rem; }
 .quick .k { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--c-gris); font-weight: 700; }
 .quick .v { font-weight: 800; font-size: 1.02rem; margin-top: .1rem; color: var(--c-texto); }
 .quick .d { font-size: .82rem; color: var(--c-gris); }
 
-/* ---------- Pasos numerados ---------- */
 .pasos { list-style: none; padding: 0; margin: var(--sp-4) 0; }
 .pasos .paso { display: flex; gap: var(--sp-3); margin-bottom: var(--sp-3); align-items: flex-start; }
 .pasos .n {
@@ -211,12 +187,10 @@ main section:has(> .card + .card) > h2 { grid-column: 1 / -1; margin-top: var(--
 }
 .pasos .paso.primero .n { background: var(--c-rojo); }
 
-/* ---------- Tabla simple (horarios/eventos) ---------- */
 .tabla { width: 100%; border-collapse: collapse; background: var(--c-crema); border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--c-borde); }
 .tabla th { background: var(--c-azul-medio); color: var(--c-blanco); text-align: left; padding: var(--sp-2) var(--sp-3); }
 .tabla td { padding: var(--sp-2) var(--sp-3); border-top: 1px solid var(--c-borde); }
 
-/* ---------- Bottom nav (móvil) ---------- */
 .bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
   display: flex; background: var(--c-azul-oscuro);
@@ -236,14 +210,12 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
   body { padding-bottom: 0; }
 }
 
-/* ---------- Lema (firma de páginas) ---------- */
 .lema {
   background: var(--c-azul-medio); color: var(--c-blanco);
   text-align: center; font-weight: 800; font-size: var(--fs-xs);
   letter-spacing: 1px; padding: 10px var(--sp-4);
 }
 
-/* ---------- Mascota CIBER (opcional) ---------- */
 .ciber-dice {
   display: flex; gap: var(--sp-3); align-items: center;
   background: var(--c-crema); border: 2px dashed var(--c-azul-claro);
@@ -253,7 +225,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 .ciber-dice .ciber-avatar { font-size: 34px; }
 .ciber-dice .ciber-frase { font-weight: 700; }
 
-/* ---------- Animaciones: solo suaves, respetando reduce-motion ---------- */
 @keyframes pulsa { 0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)} }
 .anim-pulsa { animation: pulsa 2.2s ease-in-out infinite; }
 
@@ -261,7 +232,13 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
-/* ---------- Cuenta regresiva hasta el 11 de octubre ---------- */
+@keyframes aparecer { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.card { animation: aparecer .25s ease-out; }
+@keyframes rebote { 0% { transform: scale(.92); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.anim-correcto { animation: rebote .35s ease-out; }
+@keyframes sacudir { 0%, 100% { transform: none; } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.anim-error { animation: sacudir .4s ease-out; }
+
 .contador { display: flex; gap: var(--sp-2); justify-content: center; margin: var(--sp-4) auto 0; max-width: 420px; }
 .contador .u {
   background: var(--c-blanco); color: var(--c-azul-oscuro);
@@ -271,7 +248,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 .contador .u b { display: block; font-size: var(--fs-lg); line-height: 1.1; }
 .contador .u span { font-size: 11px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
 
-/* ---------- Grupo de días con encabezado (cartelera) ---------- */
 .dia-grupo { margin: var(--sp-5) 0 var(--sp-3); }
 .dia-grupo > .d {
   display: flex; align-items: center; gap: var(--sp-3);
@@ -287,7 +263,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 .dia-grupo > .d .n b { font-size: var(--fs-md); }
 .dia-grupo > .d .n span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
 
-/* ---------- Tarjeta-evento tipo póster ---------- */
 .postal-evento {
   display: flex; gap: var(--sp-3); align-items: flex-start;
   background: var(--c-crema); border: 1px solid var(--c-borde); border-radius: var(--r-md);
@@ -301,7 +276,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 .postal-evento.estelar { border-left: 6px solid var(--c-ambar); }
 .postal-evento.taller-nosotros { border-left: 6px solid var(--c-verde); }
 
-/* ---------- Índice rápido de días ---------- */
 .indice-dias { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0; }
 .indice-dias a {
   background: var(--c-azul-medio); color: var(--c-blanco);
@@ -310,7 +284,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 }
 .indice-dias a:hover { background: var(--c-azul-claro); }
 
-/* ---------- Tips de seguridad en el evento ---------- */
 .tip-grid { display: grid; gap: var(--sp-3); }
 @media (min-width: 640px) { .tip-grid { grid-template-columns: 1fr 1fr; } }
 .tip {
@@ -319,7 +292,6 @@ body { padding-bottom: 76px; } /* espacio nav móvil */
 }
 .tip strong { color: var(--c-azul-medio); display: block; margin-bottom: var(--sp-1); }
 
-/* ---------- Visor a pantalla completa (lightbox, FASE 17) ---------- */
 .galeria-grid img.zoomable, .card img.zoomable, .qr-box img.zoomable { cursor: zoom-in; }
 .btn-video-full {
   display: inline-block; margin-top: var(--sp-2); font: inherit; font-size: var(--fs-sm);

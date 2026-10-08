@@ -128,8 +128,8 @@
           if (op.ok) puntos++;
           zona.querySelectorAll("#j-ops button").forEach(function (x) { x.disabled = true; });
           zona.querySelector("#j-fb").innerHTML =
-            '<p class="' + (op.ok ? 'card card-ok' : 'card') + '" style="padding:var(--sp-2) var(--sp-3); margin:var(--sp-2) 0;">' +
-            J.esc(op.feedback) + '</p>' +
+            '<p class="' + (op.ok ? 'card card-ok anim-correcto' : 'card anim-error') + '" style="padding:var(--sp-2) var(--sp-3); margin:var(--sp-2) 0;">' +
+            (op.ok ? '✅ ' : '⚠️ ') + J.esc(op.feedback) + '</p>' +
             '<button class="btn btn-primary" id="j-sig">' + (i + 1 < rondas.length ? 'Siguiente →' : 'Ver mi resultado') + '</button>';
           zona.querySelector("#j-sig").addEventListener("click", function () {
             i++;
